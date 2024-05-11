@@ -1,40 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-
     <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <!-- theme meta -->
+        <meta name="theme-name" content="quixlab" />
       
-      <!-- theme meta -->
-      <meta name="theme-name" content="quixlab" />
-      <title>pfe work</title>
-      <!-- Favicon icon -->
-      <link rel="icon" type="image/png" sizes="16x16" href="interface/images/favicon.png">
-      <!-- Pignose Calender -->
-      <link href="interface/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
-      <!-- Chartist -->
-      <link rel="stylesheet" href="interface/plugins/chartist/css/chartist.min.css">
-      <link rel="stylesheet" href="interface/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
-      <!--icon library-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <!-- Custom Stylesheet -->
-      <link href="interface/css/style.css" rel="stylesheet">
+        <title>pfe not easy</title>
+         <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="interface/images/favicon.png">
+   <!-- Pignose Calender -->
+   <link href="interface/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+ <!-- Chartist -->
+ <link rel="stylesheet" href="interface/plugins/chartist/css/chartist.min.css">
+ <link rel="stylesheet" href="interface/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+ <!-- Custom Stylesheet -->
+ <link href="interface/css/style.css" rel="stylesheet">
 
-  
-  </head>
-
-
-    
-    
-  </head>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+ crossorigin="anonymous" referrerpolicy="no-referrer" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-   
-     
+    <script>
+      function toggleSubMenu(subMenuId) {
+          var subMenus = document.querySelectorAll('.sub-menu');
+          subMenus.forEach(function(subMenu) {
+              subMenu.style.display = 'none';
+          });
+
+          var selectedSubMenu = document.getElementById(subMenuId);
+          if (selectedSubMenu) {
+              selectedSubMenu.style.display = 'block';
+          }
+      }
+  </script>
+  <!--**********************************
+        Scripts
+    ***********************************-->
+    
+    <script src="interface/plugins/common/common.min.js"></script>
+    <script src="interface/js/custom.min.js"></script>
+    <script src="interface/js/settings.js"></script>
+    <script src="interface/js/gleek.js"></script>
+    <script src="interface/styleSwitcher.js"></script>
 
     <!-- Chartjs -->
     <script src="interface/plugins/chart.js/Chart.bundle.min.js"></script>
@@ -46,17 +59,25 @@
     <script src="interface/plugins/datamaps/datamaps.world.min.js"></script>
     <!-- Morrisjs -->
     <script src="interface/plugins/raphael/raphael.min.js"></script>
-    <script src="/interfaceplugins/morris/morris.min.js"></script>
+    <script src="interface/plugins/morris/morris.min.js"></script>
     <!-- Pignose Calender -->
-    <script src="/interface/plugins/moment/moment.min.js"></script>
+    <script src="interface/plugins/moment/moment.min.js"></script>
     <script src="interface/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
     <!-- ChartistJS -->
     <script src="interface/plugins/chartist/js/chartist.min.js"></script>
     <script src="interface/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+    <script src="interface/plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="interface/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="interface/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
 
-
-
+    <script src="interface/plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="interface/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
     <script src="interface/js/dashboard/dashboard-1.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
   </body>
 </html>

@@ -120,7 +120,7 @@ body {
   color: #76838f;
   text-align: left;
   background-color: #F3F3F9;
-  overflow:auto;
+  overflow: scroll;
 }
 
 [tabindex="-1"]:focus {

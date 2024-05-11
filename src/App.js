@@ -1,19 +1,24 @@
-
 import React from 'react';
+
+import RespoSideBar from './pages/RespoSideBar'
+import AdminSideBar from './pages/AdminSideBar';
+import ProfSideBar from './pages/ProfSideBar';
+import EtudeSideBar from './pages/EtudeSideBar'
+
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ModifierVotreCompte from './pages/ModifierVotreCompte';
-import NavBar from './pages/NavBar';
-import SideBar from './pages/SideBar';
+
 
 function App() {
   return (
-   <>
-     <NavBar/>
-     <SideBar/>
-     </>
-
-    
-    
+   
+   <BrowserRouter>
+   <Routes>
+    <Route path="/" element={<EtudeSideBar/>}/>
+    <Route path="/prof" element={<ProfSideBar/>}/>
+    <Route path="/admin" element={<AdminSideBar/>}/>
+    <Route path="/respo" element={<RespoSideBar/>}/>
+   </Routes>
+   </BrowserRouter>
   );
 }
 
