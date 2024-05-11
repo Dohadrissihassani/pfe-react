@@ -7,7 +7,7 @@ function EditProfessur(props) {
 
 
   useEffect (() => {
-    let id =props.mqtch.params.id;
+    let id =props.match.params.id;
     getProfesseurById(id);
   },  []);
    

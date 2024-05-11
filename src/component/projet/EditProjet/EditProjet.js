@@ -21,8 +21,8 @@ function EditProjet() {
           id:projet.id,
           titre: projet.titre,
           objectif: projet. objectif,
-          dateCreation: projet.dateCreation
-          
+          dateCreation:new Date(stateProj.dateCreation).toISOString.split("T")[0],
+        
            });
           
    
@@ -30,7 +30,7 @@ function EditProjet() {
        .catch( err => alert(err) );
      };
      
-     const putProjet = (e) => {
+     const putProjet =(e) => {
       console.log(setstateProj);
       axios
       .put('    ',setstateProj)
@@ -56,6 +56,7 @@ function EditProjet() {
                e =>{
                 e.preventDefault();
                     submit(e);
+                    putProjet(e) ;
                     }} >
                  <label for="Titre">Titre:</label>
                  <input value={stateProj.titre}
@@ -65,7 +66,7 @@ function EditProjet() {
                          titre: value,
                          id:stateProj.id,
                          objectif :stateProj.objectif,
-                         dateCreation:stateProj.dateCreation
+                         dateCreation :stateProj.dateCreation
                         
                          });
                         }}
