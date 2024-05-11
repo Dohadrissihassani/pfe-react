@@ -40,6 +40,7 @@ function Professeur() {
                                                  <th>Le Nom</th>
                                                  <th>Le prenom</th>
                                                  <th>Email</th>
+                                                 
                                                  <th>Département</th>
                                                  <th>Modifier</th>
                                              </tr>
@@ -56,9 +57,9 @@ function Professeur() {
                                              <div className="col-7">
                                                  <div className="text-left">
                                                      <a href="creeProfesseur.html"> <button >+Ajouter</button></a>
-                                                     </div>
+                                                     
                                              </div>
-                                              
+                                             </div>  
                 
                                          </div>
                                          </Link>
@@ -68,8 +69,8 @@ function Professeur() {
                                    
                                  
                              </div>
-                         </div>
-                     </div>                        
+                             </div>
+                      </div>                        
                  </div>
              </div>
 
@@ -87,4 +88,4 @@ function Professeur() {
   )
 }
 
-export default Professeur
+export default Professeur;
