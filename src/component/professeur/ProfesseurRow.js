@@ -6,9 +6,9 @@ function ProfesseurRow(props) {
         <tr key={d.id}>
       
         <th>{d.nom}</th>
-        <th>{d.prenom}</th>
-        <th>{d.email}</th>
-        <th>{d.Departement}</th>
+        <td>{d.prenom}</td>
+        <td>{d.email}</td>
+        <td>{d.Departement}</td>
         <td>
             <Link to={'edit/${d.id}'} >
             <button className="btn btn-light" >
