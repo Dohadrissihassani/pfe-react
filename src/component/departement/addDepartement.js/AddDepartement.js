@@ -28,7 +28,7 @@ function AddDepartement() {
     <div>
         
         <div class="container">
-           <form method="get" onSubmit={
+           <htmlForm method="get" onSubmit={
             e =>{
                 e.preventDefault();
                 submit(e);
@@ -42,7 +42,7 @@ function AddDepartement() {
            <input type="text" id='Responsqble' placeholder=" Entrez le Responsable de  département:"/>
 
            <button>Confirmer</button>
-           </form>
+           </htmlForm>
          </div>
         
         </div>

@@ -45,7 +45,7 @@ function EditDepartement(props) {
    
         
    <div class="container">
-           <form method="get" onSubmit={
+           <htmlForm method="get" onSubmit={
             e =>{
                 e.preventDefault();
                 submit(e);
@@ -93,7 +93,7 @@ function EditDepartement(props) {
             type="text" id='Responsqble' placeholder=" Entrez le Responsable de  département:"/>
 
            <button>Confirmer</button>
-           </form>
+           </htmlForm>
          </div>
 
 
