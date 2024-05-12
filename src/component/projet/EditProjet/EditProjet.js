@@ -21,8 +21,8 @@ function EditProjet() {
           id:projet.id,
           titre: projet.titre,
           objectif: projet. objectif,
-          dateCreation: projet.dateCreation
-          
+          dateCreation:new Date(stateProj.dateCreation).toISOString.split("T")[0],
+        
            });
           
    
@@ -30,7 +30,7 @@ function EditProjet() {
        .catch( err => alert(err) );
      };
      
-     const putProjet = (e) => {
+     const putProjet =(e) => {
       console.log(setstateProj);
       axios
       .put('    ',setstateProj)
@@ -52,12 +52,13 @@ function EditProjet() {
          
          <div class="container" >
               <h4>Créer un projet</h4>
-             <form method="get" onSubmit={
+             <htmlForm method="get" onSubmit={
                e =>{
                 e.preventDefault();
                     submit(e);
+                    putProjet(e) ;
                     }} >
-                 <label for="Titre">Titre:</label>
+                 <label htmlFor="Titre">Titre:</label>
                  <input value={stateProj.titre}
                          onChange={e => {
                        let value = e.target.value ;
@@ -65,14 +66,14 @@ function EditProjet() {
                          titre: value,
                          id:stateProj.id,
                          objectif :stateProj.objectif,
-                         dateCreation:stateProj.dateCreation
+                         dateCreation :stateProj.dateCreation
                         
                          });
                         }}
 
                  
                  type="text" id="Titre" name="Titre" placeholder="Entrez le Titre du projet" required/>
-                 <label for="Année">Date de création:</label>
+                 <label htmlFor="Année">Date de création:</label>
                  <input value={stateProj.dateCreation}
                          onChange={e => {
                        let value = e.target.value ;
@@ -87,7 +88,7 @@ function EditProjet() {
                         }}
 
                  type="date" id="Année" name="Année" placeholder="2024" required/>
-                 <label for="Objectif">Objectif:</label>
+                 <label htmlFor="Objectif">Objectif:</label>
                  <input value={stateProj.objectif}
                          onChange={e => {
                        let value = e.target.value ;
@@ -103,7 +104,7 @@ function EditProjet() {
                  type="Ojectif" id="Objectif" name="Objectif" placeholder="Entrez le Objectif du projet" required/>               
                   
                    <button type="submit">Confirmer</button>
-             </form>
+             </htmlForm>
         </div>
                  
         </div>
