@@ -1,13 +1,13 @@
 import axios from 'axios';
 import React, { useEffect , useState } from 'react'
-import {withRouter} from "react-router-dom";
+
 
 function EditProfessur(props) {
     const [ stateProf , setstateProf]= useState ({});
 
 
   useEffect (() => {
-    let id =props.mqtch.params.id;
+    let id =props.match.params.id;
     getProfesseurById(id);
   },  []);
    
@@ -46,13 +46,13 @@ function EditProfessur(props) {
      <div className="content-body">
          
          <div className="container" >
-             <form method="get"
+             <htmlForm method="get"
               onSubmit={ e =>{
                  e.preventDefault();
                  putProfesseur(e)  ;
                } }>
-                <h4 style="color:#1E97F3;">Créer un Compte</h4>
-                <label for="nom">Nom et Prénom :</label>
+                <h4 style={{color:"#1E97F3"}}>Créer un Compte</h4>
+                <label htmlFor="nom">Nom et Prénom :</label>
                 <input  value={stateProf.name}
                          onChange={e => {
                            let value = e.target.value ;
@@ -67,7 +67,7 @@ function EditProfessur(props) {
                           }}
                  type="text"   id="nom" name="nom" placeholder="Entrez le nom et le prénom" required />
     
-                <label for="email">Adresse e-mail :</label>
+                <label htmlFor="email">Adresse e-mail :</label>
                 <input  value={stateProf.email}
                  onChange={e => {
                     let value = e.target.value ;
@@ -83,7 +83,7 @@ function EditProfessur(props) {
     
                 
     
-                <label for="tel">Téléphone :</label>
+                <label htmlFor="tel">Téléphone :</label>
                 <input value={stateProf.telephone}
                   onChange={e => {
                     let value = e.target.value ;
@@ -98,7 +98,7 @@ function EditProfessur(props) {
                    }}
                  type="tel" id="tel" name="tel" placeholder="Entrez le numéro de téléphone" required/>
     
-                <label for="departement">Département :</label>
+                <label htmlFor="departement">Département :</label>
                 <select value={stateProf.departement}
                   onChange={e => {
                     let value = e.target.value ;
@@ -117,7 +117,7 @@ function EditProfessur(props) {
                   
                 </select>
     
-                <label for="password">Mot de passe :</label>
+                <label htmlFor="password">Mot de passe :</label>
                 <input value={stateProf.password}
                  onChange={e => {
                     let value = e.target.value ;
@@ -132,7 +132,7 @@ function EditProfessur(props) {
                  type="password"  id="password" name="password" placeholder="Entrez votre mot de passe" required/>
                 
                 <button type="submit">Confirmer</button>
-            </form>
+            </htmlForm>
           </div>
                 
        </div>
@@ -143,4 +143,4 @@ function EditProfessur(props) {
   )
 } 
 
-export default  withRouter(EditProfessur);
+export default  EditProfessur;

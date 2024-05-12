@@ -23,7 +23,7 @@ function AddProfesser() {
 
     const postProfesseur =data =>{
       axios
-      .post("",data)
+      .post("http://localhost:9090/save",data)
       .then(d => {
         console.log(d);
       })
@@ -39,26 +39,26 @@ function AddProfesser() {
                   e.preventDefaultl();
                   submit(e);
                 } }>
-                 <h4 style="color:#1E97F3;">Créer un Compte</h4>
-                 <label for="nom">Nom et Prénom :</label>
+                 <h4 style={{color:"#1E97F3"}}>Créer un Compte Professeur</h4>
+                 <label htmlFor="nom">Nom et Prénom :</label>
                  <input type="text" id="nom" name="nom" placeholder="Entrez le nom et le prénom" required />
      
-                 <label for="email">Adresse e-mail :</label>
+                 <label htmlFor="email">Adresse e-mail :</label>
                  <input type="email" id="email" name="email" placeholder="Entrez l'adresse e-mail" required/>
      
                  
      
-                 <label for="tel">Téléphone :</label>
+                 <label htmlFor="tel">Téléphone :</label>
                  <input type="tel" id="tel" name="tel" placeholder="Entrez le numéro de téléphone" required/>
      
-                 <label for="departement">Département :</label>
+                 <label htmlFor="departement">Département :</label>
                  <select id="departement" name="departement">
                      <option value="DEPARTMENT_INFO">DEPARTMENT_INFO</option>
                      <option value="DEPARTMENT_INFO">DEPARTMENT_PHYSIQUE</option>
                    
                  </select>
      
-                 <label for="password">Mot de passe :</label>
+                 <label htmlFor="password">Mot de passe :</label>
                  <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required/>
                  
                  <button type="submit">Confirmer</button>
