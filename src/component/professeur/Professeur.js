@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import ProfesseurRow from './ProfesseurRow';
 import { Link } from 'react-router-dom';
-import ProfSideBar from '../../SideBar/ProfSideBar';
-
+import AdminSideBar from '../../SideBar/AdminSideBar';
 function Professeur() {
     const [stateProfesseur, setProfesseurState] = useState([]);
 
@@ -25,7 +24,7 @@ function Professeur() {
     return (
         <>
         
-        <ProfSideBar/>
+        <AdminSideBar/>
       
         <div>
             <div className="content-body">

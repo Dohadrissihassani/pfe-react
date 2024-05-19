@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Header from './Header';
 function ProfSideBar() {
     const [activeSubMenu, setActiveSubMenu] = useState(null);
 
@@ -13,7 +13,7 @@ function ProfSideBar() {
 
     return (
         <>
-        
+       
            <div class="nav-header" style={{backgroundColor:"#1E97F3"}}>
             <div class="brand-logo">
                
@@ -70,6 +70,7 @@ function ProfSideBar() {
                 </ul>
             </div>
         </div>
+       
         </>
     );
 }
