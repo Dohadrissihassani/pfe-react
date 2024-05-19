@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import ProfesseurRow from './ProfesseurRow';
 import { Link } from 'react-router-dom';
+import ProfSideBar from '../../SideBar/ProfSideBar';
 
 function Professeur() {
     const [stateProfesseur, setProfesseurState] = useState([]);
@@ -22,6 +23,10 @@ function Professeur() {
         console.log("asdf");
     }
     return (
+        <>
+        
+        <ProfSideBar/>
+      
         <div>
             <div className="content-body">
 
@@ -34,7 +39,7 @@ function Professeur() {
                                 <div className="card-body">
                                     <h4 className="card-title">La Liste des Professeurs</h4>
                                     <div className="active-member">
-                                        <Link to="/add">
+                                        <Link to="/addProf">
                                             <div className="row">
                                                 <div className="col-7">
                                                     <div className="text-left">
@@ -52,10 +57,18 @@ function Professeur() {
                                                         <th>Le Nom</th>
                                                         <th>Le prenom</th>
                                                         <th>Email</th>
-
                                                         <th>Département</th>
-                                                        <th>Modifier</th>
+                                                        <th>Modfier</th>
                                                     </tr>
+                                                    {/*Example of seeing hihi */}
+                                                    <tr>
+                                                        <td>assia</td>
+                                                        <td>el bousani</td>
+                                                        <td>my email</td>
+                                                        <td>SMI</td>
+                                                        <td><button className="btn btn-light" ><i className="fa-regular fa-pen-to-square"></i></button></td>
+                                                    </tr>
+                                                     {/*Example of seeing hihi */}
                                                 </thead>
                                                 <tbody>
 
@@ -86,7 +99,7 @@ function Professeur() {
 
 
 
-
+</>
 
     )
 }

@@ -1,11 +1,12 @@
 import React from 'react'
 import axios from 'axios';
+import { withRouter } from "react-router-dom";
 function AddDepartement() {
 
 
       const submit =e  => {
 
-      let  name= e.targer[0].value;
+      let  name = e.targer[0].value;
       let  Responsable = e.targer[1].value;
       
       let data ={
@@ -49,4 +50,4 @@ function AddDepartement() {
   );
 }
 
-export default AddDepartement
+export default withRouter(AddDepartement);
