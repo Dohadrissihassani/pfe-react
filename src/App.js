@@ -16,10 +16,10 @@ import Filiere from './component/Filiere/Filiere';
 import AddFiliere from './component/Filiere/AddFiliere';
 import EditFiliere from './component/Filiere/EditFiliere';
 import FiliereRow from './component/Filiere/FiliereRow';
-import Student from './component/Users/ApprouverEtud';
 import StudentRow from './component/Users/StudentRow';
-import ApprouverEtud from './component/Users/ApprouverEtud';
 import DeleteDisactiveUser from './component/Users/DeleteDisactiveUser';
+import SignUp from './component/LoginSignup/SignUp';
+import Student from './component/Users/Student';
 function App() {
   return (
     
@@ -29,10 +29,12 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-     
+      
+      
+      <Route path="/" element={<Student/>} />
           <Route path="/creeProfesseur" element={<AddProfesser/>} />
                     <Route path="/Liste_Professeur" element={<Professeur/>} />
-                    <Route path="/admin-approuverEtud" element={<ApprouverEtud/>} />
+                    <Route path="/admin-approuverEtud" element={<Student/>} />
                     <Route path="/Suprim_disactiveCompte" element={<DeleteDisactiveUser/>} />
                     <Route path="/creeDepartement" element={<AddDepartement/>} />
                     <Route path="/listeDepart" element={<Departement/>} />

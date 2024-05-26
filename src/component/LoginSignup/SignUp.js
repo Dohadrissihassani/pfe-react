@@ -26,7 +26,7 @@ function SignUp() {
       alert("User Registration Successfully");
       setPrénom("");
       setNom("");
-      setAdresseEmail("");
+      setAdressEmail("");
       setCodeApogee("");
       setTelephone("");
       setFilière("SMI");
