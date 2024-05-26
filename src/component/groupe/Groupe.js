@@ -12,12 +12,20 @@ function Groupe() {
 
   const getGroupe = () => {
     axios
-      .get('/api/groupes') // replace with your actual endpoint
-      .then(data => {
-        setGroupeState(data.data);
-      })
-      .catch(err => alert(err));
-  };
+        .get("http://localhost:9090/professeur/info")
+        .then(response => {
+            let Groupe= response.data;
+            setGroupeState(
+           Groupe.map( d=> ({
+                    select : false,
+                    id:d.id,
+                    id :d.projet.titre
+                }))
+            );
+
+         } )
+            .catch(err => alert(err));
+};
 
   return (
     <div className="content-body">

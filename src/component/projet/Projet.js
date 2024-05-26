@@ -13,8 +13,21 @@ function Projet() {
       const getProjet =()=>{
         axios
         .get("  ")
-        .then(data=>{
-          setProjetState(data.data);
+        .then(response=>{
+          let Projet =response.data
+          setProjetState(
+              Projet.map(d=> ({
+                select: false,
+                id : d.id,
+                titre: d.titre,
+                dateCreation: d.dateCreation
+              }
+
+              )
+
+              )
+          );
+
         }).catch(err=> alert(err));
       };
     const sendTest= () =>{

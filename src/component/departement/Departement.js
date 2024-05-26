@@ -12,13 +12,25 @@ function Departement() {
    getDepartement();
  }, []);
 
- const getDepartement =()=>{
-   axios
-   .get("")
-   .then(data=>{
-     setDepartementState(data.data);
-   }).catch(err=> alert(err));
- };
+ const getDepartement = () => {
+    axios
+        .get("http://localhost:9090/professeur/info")
+        .then(response => {
+            let Departement= response.data;
+           setDepartementState(
+              Departement.map( d=> ({
+                    select : false,
+                    id:d.id,
+                    nom :d.nom,
+                    Description :d.Description,
+                    Responsable :d.Responsable
+
+                }))
+            );
+
+         } )
+            .catch(err => alert(err));
+};
 const sendTest= () =>{
    console.log("asdf");
 }
