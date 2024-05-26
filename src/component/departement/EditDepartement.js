@@ -1,105 +1,80 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import AdminSideBar from '../../SideBar/AdminSideBar';
 
 function EditDepartement(props) {
-    const [ stateDept , setstateDept]= useState ({});
+    const [stateDept, setStateDept] = useState({});
 
-
-    useEffect ( () =>{
+    useEffect(() => {
         let id = props.match.params.id;
         getDepartementBy(id);
+    }, []);
 
-    },[] );
-   
-    const getDepartementBy =id => {
-        axios 
-        .get ( '  ')
-        .then ( d=> {
-            let departement =d.data;
-
-            setstateDept({
-            id: departement.id,
-            name:departement.name ,
-            Description: departement.Description,
-           Responsable: departement. Responsable
-    } );
-
-    
-      })
-        .catch( err => alert(err) );
-     }; 
-
-
-    const putDepartement =(e) => {
-        console.log(setstateProj);
+    const getDepartementBy = (id) => {
         axios
-        .put('    ',setstateProj)
-        .then(d => {
-            props.history.puch("/");
-        })
-        .catch(err => alert(err));
-       } ;
+            .get('YOUR_API_ENDPOINT/' + id) // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+            .then((response) => {
+                const departement = response.data;
+                setStateDept({
+                    id: departement.id,
+                    name: departement.name,
+                    Description: departement.Description,
+                    Responsable: departement.Responsable
+                });
+            })
+            .catch((error) => {
+                console.error('Error fetching department:', error);
+                alert('Error fetching department:', error);
+            });
+    };
 
-  return (
-    <div>
-   
-        
-   <div class="container">
-           <htmlForm method="get" onSubmit={
-            e =>{
-                e.preventDefault();
-                submit(e);
-            } } >
-            <h1 style={{stroke: "color:#1E97F3 ; font-size: large; text-align: center;"}}>Nouveau Département </h1>
-           <h2>Nom du Département</h2>
-           <input  value={stateDept.name}
-                         onChange={e => {
-                       let value = e.target.value ;
-                          setstateDept ({ 
-                         name: value,
-                         Description :stateDept.Description,
-                         id:stateDept.id,
-                          Responsable: stateDept. Responsable
-           
-                         
-                        
-                         });
-                        }}
-          
-           type="text" id='name ' placeholder="DEPT-NAME"/>
-           <h2>Description</h2>
-           <input  value={stateDept.name}
-                         onChange={e => {
-                       let value = e.target.value ;
-                          setstateDept ({ 
-                        Description:value,
-                         name: stateDept.name,
-                          id:stateDept.id,
-                          Responsable: stateDept. Responsable
-                        });
-                    }}
-           type="text" id='name ' placeholder="Entrez la Description ici"/>
-           <h2>Responsable de  département:</h2>
-           <input  value={stateDept.name}
-                         onChange={e => {
-                       let value = e.target.value ;
-                          setstateDept ({ 
-                          Responsable:value,
-                         name: stateDept.name,
-                          id:stateDept.id,
-                          Description :stateDept.Description
-                        });
-                    }}
-            type="text" id='Responsqble' placeholder=" Entrez le Responsable de  département:"/>
+    const putDepartement = (e) => {
+        e.preventDefault();
+        axios
+            .put('YOUR_API_ENDPOINT/' + stateDept.id, stateDept) // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+            .then((response) => {
+                props.history.push("/"); // Fixed typo: 'push' instead of 'puch'
+            })
+            .catch((error) => {
+                console.error('Error updating department:', error);
+                alert('Error updating department:', error);
+            });
+    };
 
-           <button>Confirmer</button>
-           </htmlForm>
-         </div>
+    return (
+        <div>
+            <AdminSideBar />
 
-
-
-    </div>
-  )
+            <div className="container">
+                <form onSubmit={putDepartement}>
+                    <h1 style={{ color: '#1E97F3', fontSize: 'large', textAlign: 'center' }}>Modifier Département</h1>
+                    <h2>Nom du Département</h2>
+                    <input
+                        type="text"
+                        value={stateDept.name}
+                        onChange={(e) => setStateDept({ ...stateDept, name: e.target.value })}
+                        placeholder="Nom du Département"
+                    />
+                    <h2>Description</h2>
+                    <input
+                        type="text"
+                        value={stateDept.Description}
+                        onChange={(e) => setStateDept({ ...stateDept, Description: e.target.value })}
+                        placeholder="Description"
+                    />
+                    <h2>Responsable du département:</h2>
+                    <input
+                        type="text"
+                        value={stateDept.Responsable}
+                        onChange={(e) => setStateDept({ ...stateDept, Responsable: e.target.value })}
+                        placeholder="Responsable du département"
+                    />
+                    <button type="submit">Confirmer</button>
+                </form>
+            </div>
+        </div>
+    );
 }
 
-export default  EditDepartement;
+export default EditDepartement;

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React from 'react'
+import AdminSideBar from '../../SideBar/AdminSideBar';
 
 function AddProfesser() {
   const submit =e  => {
@@ -31,6 +32,7 @@ function AddProfesser() {
     };
   return (
     <div>
+      <AdminSideBar/>
          <div className="content-body">
          
           <div className="container" >

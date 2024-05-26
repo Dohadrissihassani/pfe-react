@@ -53,5 +53,11 @@
       text-align: center;
       color: #1e97f3;
   }
-  
+  .icon-btn {
+    width: 32px; /* Adjust the width to fit the icon size */
+    height: 32px; /* Adjust the height to fit the icon size */
+    padding: 2px;
+    margin:5px; /* Remove extra padding */
+   
+  }
   

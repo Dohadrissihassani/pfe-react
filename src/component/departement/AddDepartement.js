@@ -1,53 +1,54 @@
-import React from 'react'
+import React from 'react';
 import axios from 'axios';
-import { withRouter } from "react-router-dom";
+import AdminSideBar from '../../SideBar/AdminSideBar';
+import { useNavigate } from "react-router-dom";
+
 function AddDepartement() {
+  const navigate = useNavigate();
 
+  const submit = e => {
+    e.preventDefault();
 
-      const submit =e  => {
+    let name = e.target[0].value;
+    let Responsable = e.target[1].value;
 
-      let  name = e.targer[0].value;
-      let  Responsable = e.targer[1].value;
-      
-      let data ={
-         name,
-         Responsable
-      }
-      console.log(data);
-      postDepartement(data);
-      }
-      const postDepartement =data =>{
-        axios
-        .post("",data)
-        .then(d => {
-          console.log(d);
-        })
-        .catch(err => alert(err));
-      };
+    let data = {
+      name,
+      Responsable
+    };
+    
+    console.log(data);
+    postDepartement(data);
+  }
+
+  const postDepartement = data => {
+    axios
+      .post("", data)
+      .then(d => {
+        console.log(d);
+        // navigate to a different route if needed
+        navigate('/some-route');
+      })
+      .catch(err => alert(err));
+  };
 
   return (
     <div>
-        
-        <div class="container">
-           <htmlForm method="get" onSubmit={
-            e =>{
-                e.preventDefault();
-                submit(e);
-            } } >
-            <h1 style="color:#1E97F3 ; font-size: large; text-align: center;">Nouveau Département </h1>
-           <h2>Nom du Département</h2>
-           <input type="text" id='name ' placeholder="DEPT-NAME"/>
-           <h2>Description</h2>
-           <input type="text" id='name ' placeholder="Entrez la Description ici"/>
-           <h2>Responsable de  département:</h2>
-           <input type="text" id='Responsqble' placeholder=" Entrez le Responsable de  département:"/>
-
-           <button>Confirmer</button>
-           </htmlForm>
-         </div>
-        
-        </div>
+      <AdminSideBar />
+      <div className="container">
+        <form method="get" onSubmit={submit}>
+          <h1 style={{color: '#1E97F3', fontSize: 'large', textAlign: 'center'}}>Nouveau Département</h1>
+          <label>Nom du Département</label>
+          <input type="text" id='name' placeholder="DEPT-NAME" />
+          <label>Description</label>
+          <input type="text" id='description' placeholder="Entrez la Description ici" />
+          <label>Responsable de département:</label>
+          <input type="text" id='Responsable' placeholder="Entrez le Responsable de département" />
+          <button>Confirmer</button>
+        </form>
+      </div>
+    </div>
   );
 }
 
-export default withRouter(AddDepartement);
+export default AddDepartement;

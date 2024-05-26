@@ -1,7 +1,8 @@
-import React from 'react'
-import DepartementRow from './departement/DepartementRow';
+import React, { useState, useEffect } from 'react';
+import DepartementRow from './DepartementRow';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import AdminSideBar from '../../SideBar/AdminSideBar';
 
 function Departement() {
    
@@ -24,11 +25,11 @@ const sendTest= () =>{
   return (
     <div>
 
-    
+    <AdminSideBar/>
     
 <div class="content-body">
          
-         <div class="container-fluid mt-3">
+         <div class="container-fluid mt-3">s
 
              <div class="row">
                  <div class="col-lg-12">
