@@ -53,8 +53,10 @@ function App() {
                     <Route path="/addFiliere" element={<AddFiliere/>} />
 
                     {/*<Route path="/homeBefore" element={<HomeBefore/>} />*/}
+         
 
         </Routes>
+
         <Footer/>
       </Router> 
     

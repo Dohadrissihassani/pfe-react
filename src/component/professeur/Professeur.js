@@ -3,8 +3,12 @@ import axios from "axios";
 import ProfesseurRow from './ProfesseurRow';
 import { Link } from 'react-router-dom';
 import AdminSideBar from '../../SideBar/AdminSideBar';
+import Departement from '../departement/Departement';
 function Professeur() {
     const [stateProfesseur, setProfesseurState] = useState([]);
+    
+     const {id}= 
+
 
     useEffect(() => {
         getProfesseur();
@@ -13,11 +17,29 @@ function Professeur() {
     const getProfesseur = () => {
         axios
             .get("http://localhost:9090/professeur/info")
-            .then(data => {
-                console.log(data);
-                setProfesseurState(data.data);
-            }).catch(err => alert(err));
+            .then(response => {
+                let Professeur= response.data;
+                setProfesseurState(
+                  Professeur.map( d=> ({
+                        select : false,
+                        nom : d.nom,
+                        prenom : d.prenom,
+                        email: d.email,
+                        Departement: d.Departement
+                    }))
+                );
+
+             } )
+                .catch(err => alert(err));
     };
+
+    const deleteProfesseur= async (id) => {
+        await axios.delete('http: ')
+        
+    }
+
+
+
     const sendTest = () => {
         console.log("asdf");
     }

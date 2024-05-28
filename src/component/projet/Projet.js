@@ -5,7 +5,40 @@ import ProjetRow from './ProjetRow';
 import ProfSideBar from '../../SideBar/ProfSideBar';
 
 function Projet() {
+<<<<<<< HEAD
   const [projets, setProjets] = useState([]);
+=======
+    const [stateProjet,setProjetState ] = useState([]);
+
+       useEffect(() => {
+        getProjet();
+      }, []);
+
+      const getProjet =()=>{
+        axios
+        .get("  ")
+        .then(response=>{
+          let Projet =response.data
+          setProjetState(
+              Projet.map(d=> ({
+                select: false,
+                id : d.id,
+                titre: d.titre,
+                dateCreation: d.dateCreation
+              }
+
+              )
+
+              )
+          );
+
+        }).catch(err=> alert(err));
+      };
+    const sendTest= () =>{
+        console.log("asdf");
+    }
+
+>>>>>>> 2f1a44f5ccd24cd4aaa9cd93b9de0977f658a425
 
   useEffect(() => {
     getProjets();
