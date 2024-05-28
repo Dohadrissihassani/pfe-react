@@ -5,9 +5,8 @@ import ProjetRow from './ProjetRow';
 import ProfSideBar from '../../SideBar/ProfSideBar';
 
 function Projet() {
-<<<<<<< HEAD
+
   const [projets, setProjets] = useState([]);
-=======
     const [stateProjet,setProjetState ] = useState([]);
 
        useEffect(() => {
@@ -38,7 +37,7 @@ function Projet() {
         console.log("asdf");
     }
 
->>>>>>> 2f1a44f5ccd24cd4aaa9cd93b9de0977f658a425
+
 
   useEffect(() => {
     getProjets();
