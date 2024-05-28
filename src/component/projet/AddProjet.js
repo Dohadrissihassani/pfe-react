@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ProfSideBar from '../../SideBar/ProfSideBar';
 
-function AddProjet() {
+function AddProjet(props) {
 
 
     const submit =e  => {
@@ -15,7 +15,7 @@ function AddProjet() {
          dateCreation ,
          objectif
         };
-        console.log(data);
+       
         postProjet(data);
      } ; 
    
@@ -26,6 +26,7 @@ function AddProjet() {
          .post("",data)
          .then(d => {
            console.log(d);
+           props.history.push("/ListeProjet");
          })
          .catch(err => alert(err));
        };
