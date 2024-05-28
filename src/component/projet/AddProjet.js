@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import ProfSideBar from '../../SideBar/ProfSideBar';
 
 function AddProjet() {
 
@@ -37,10 +38,11 @@ function AddProjet() {
     <div>
 
 
-
+  <ProfSideBar/>
         <div class="content-body">
-         
+        
          <div class="container" >
+        
               <h4>Créer un projet</h4>
              <htmlForm method="get" onSubmit={
                e =>{

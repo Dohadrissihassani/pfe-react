@@ -20,6 +20,11 @@ import StudentRow from './component/Users/StudentRow';
 import DeleteDisactiveUser from './component/Users/DeleteDisactiveUser';
 import SignUp from './component/LoginSignup/SignUp';
 import Student from './component/Users/Student';
+import Projet from './component/projet/Projet';
+import ProfSideBar from './SideBar/ProfSideBar';
+import ViewProf from './component/professeur/ViewProf';
+import AddProjet from './component/projet/AddProjet'
+import ArchivedProjet from './component/projet/ArchivedProjet';
 function App() {
   return (
     
@@ -30,8 +35,14 @@ function App() {
         <Header/>
         <Routes>
       
+        <Route path="/" element={<ProfSideBar/>} />
+        <Route path="/ProjetsArchivés" element={<ArchivedProjet/>} />
+      <Route path="/" element={<ProfSideBar/>} />
+      <Route path="/MonProfil" element={<ViewProf/>} />
+      <Route path="/ModifierCompte" element={<EditProfessur/>} />
+      <Route path="/creeProjet" element={<AddProjet/>} />
+      <Route path="/ListeProjet" element={<Projet/>} />
       
-      <Route path="/" element={<Student/>} />
           <Route path="/creeProfesseur" element={<AddProfesser/>} />
                     <Route path="/Liste_Professeur" element={<Professeur/>} />
                     <Route path="/admin-approuverEtud" element={<Student/>} />

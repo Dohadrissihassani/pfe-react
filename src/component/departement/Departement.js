@@ -29,7 +29,7 @@ const sendTest= () =>{
     
 <div class="content-body">
          
-         <div class="container-fluid mt-3">s
+         <div class="container-fluid mt-3">
 
              <div class="row">
                  <div class="col-lg-12">
@@ -37,6 +37,19 @@ const sendTest= () =>{
                          <div class="card-body">
                              <h4 class="card-title">La Liste des département</h4>
                              <div class="active-member">
+                             <Link to="/add" >
+                                         <div class="row">
+                                             <div class="col-7">
+                                                 <div class="text-left">
+                                                     <a href="creeDepartement.html"> <button >+Ajouter</button></a>
+                                                     </div>
+                                             </div>
+                                           
+                                                 
+                                                
+                                            
+                                          </div>
+                                         </Link>
                                  <div class="table-responsive">
                                      <table class="table table-xs mb-0">
                                          <thead>
@@ -55,19 +68,7 @@ const sendTest= () =>{
                                              
            
                                          </tbody>
-                                         <Link to="/add" >
-                                         <div class="row">
-                                             <div class="col-7">
-                                                 <div class="text-left">
-                                                     <a href="creeDepartement.html"> <button >+Ajouter</button></a>
-                                                     </div>
-                                             </div>
-                                           
-                                                 
-                                                
-                                            
-                                          </div>
-                                         </Link>
+                                      
                                      </table>
                                 
                                  </div>

@@ -1,146 +1,115 @@
 import axios from 'axios';
-import React, { useEffect , useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import ProfSideBar from '../../SideBar/ProfSideBar';
 
+function EditProfessur() {
+  const [stateProf, setStateProf] = useState({
+    id: "",
+    name: "",
+    email: "",
+    telephone: "",
+    departement: "",
+    password: ""
+  });
 
-function EditProfessur(props) {
-    const [ stateProf , setstateProf]= useState ({});
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-
-  useEffect (() => {
-    let id =props.match.params.id;
+  useEffect(() => {
     getProfesseurById(id);
-  },  []);
-   
-   const getProfesseurById = id => {
-    axios
-    .get('  ')
-    .then (d => {
-      let professeur = d.data;
-     
-      setstateProf ({
-        id:professeur.id,
+  }, [id]);
+
+  const getProfesseurById = async (id) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/professeur/${id}`);
+      const professeur = response.data;
+      setStateProf({
+        id: professeur.id,
         name: professeur.name,
         email: professeur.email,
-         telephone : professeur.telephone,
-         departement: professeur.departement,
-         password: professeur.password
-         });
-        
- 
-     })
-     .catch( err => alert(err) );
-   };
-   
-   const putProfesseur = (e) => {
-    console.log(setstateProf);
-    axios
-    .put('    ',setstateProf)
-    .then(d => {
-        props.history.puch("/");
-    })
-    .catch(err => alert(err));
-   } ;
+        telephone: professeur.telephone,
+        departement: professeur.departement,
+        password: professeur.password
+      });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const putProfesseur = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.put(`http://localhost:8080/professeur/${stateProf.id}`, stateProf);
+      navigate("/");
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   return (
     <div>
-     <div className="content-body">
-         
-         <div className="container" >
-             <htmlForm method="get"
-              onSubmit={ e =>{
-                 e.preventDefault();
-                 putProfesseur(e)  ;
-               } }>
-                <h4 style={{color:"#1E97F3"}}>Créer un Compte</h4>
-                <label htmlFor="nom">Nom et Prénom :</label>
-                <input  value={stateProf.name}
-                         onChange={e => {
-                           let value = e.target.value ;
-                           setstateProf ({ 
-                            name : value,
-                            id:stateProf.id,
-                            email :stateProf.email,
-                            telephone :stateProf.telephone,
-                            departement:stateProf.departement,
-                             password:stateProf.password
-                            });
-                          }}
-                 type="text"   id="nom" name="nom" placeholder="Entrez le nom et le prénom" required />
-    
-                <label htmlFor="email">Adresse e-mail :</label>
-                <input  value={stateProf.email}
-                 onChange={e => {
-                    let value = e.target.value ;
-                    setstateProf ({ email : value,
-                        name :stateProf.name,
-                        id:stateProf.id,
-                        telephone :stateProf.telephone,
-                        departement:stateProf.departement,
-                         password:stateProf.password
-                    });
-                   }}
-                 type="email"  id="email" name="email" placeholder="Entrez l'adresse e-mail" required/>
-    
-                
-    
-                <label htmlFor="tel">Téléphone :</label>
-                <input value={stateProf.telephone}
-                  onChange={e => {
-                    let value = e.target.value ;
-                    setstateProf ({ telephone: value,
-                        name :stateProf.name,
-                        id:stateProf.id,
-                        email: stateProf.email,
-                        departement:stateProf.departement,
-                         password:stateProf.password
-                         
-                    });
-                   }}
-                 type="tel" id="tel" name="tel" placeholder="Entrez le numéro de téléphone" required/>
-    
-                <label htmlFor="departement">Département :</label>
-                <select value={stateProf.departement}
-                  onChange={e => {
-                    let value = e.target.value ;
-                    setstateProf ({ departement : value,
-                        name :stateProf.name,
-                        id:stateProf.id,
-                        email: stateProf.email,
-                        telephone :stateProf.telephone,
-                         password:stateProf.password
-
-                    });
-                   }}
-                 id="departement" name="departement">
-                    <option value="DEPARTMENT_INFO">DEPARTMENT_INFO</option>
-                    <option value="DEPARTMENT_INFO">DEPARTMENT_PHYSIQUE</option>
-                  
-                </select>
-    
-                <label htmlFor="password">Mot de passe :</label>
-                <input value={stateProf.password}
-                 onChange={e => {
-                    let value = e.target.value ;
-                    setstateProf ({  password: value,
-                        name :stateProf.name,
-                        id:stateProf.id,
-                        email: stateProf.email,
-                        telephone :stateProf.telephone,
-                        departement : stateProf.departement
-                    });
-                   }}
-                 type="password"  id="password" name="password" placeholder="Entrez votre mot de passe" required/>
-                
-                <button type="submit">Confirmer</button>
-            </htmlForm>
-          </div>
-                
-       </div>
-
-
-
+      <ProfSideBar/>
+      <div className="content-body">
+        <div className="container">
+          <form onSubmit={putProfesseur}>
+            <h5 style={{ color: "#1E97F3", textAlign: "center"}}>  Modifie votre Compte</h5>
+            <label htmlFor="nom">Nom et Prénom :</label>
+            <input
+              value={stateProf.name}
+              onChange={e => setStateProf({ ...stateProf, name: e.target.value })}
+              type="text"
+              id="nom"
+              name="nom"
+              placeholder="Entrez le nom et le prénom"
+              required
+            />
+            <label htmlFor="email">Adresse e-mail :</label>
+            <input
+              value={stateProf.email}
+              onChange={e => setStateProf({ ...stateProf, email: e.target.value })}
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Entrez l'adresse e-mail"
+              required
+            />
+            <label htmlFor="tel">Téléphone :</label>
+            <input
+              value={stateProf.telephone}
+              onChange={e => setStateProf({ ...stateProf, telephone: e.target.value })}
+              type="tel"
+              id="tel"
+              name="tel"
+              placeholder="Entrez le numéro de téléphone"
+              required
+            />
+            <label htmlFor="departement">Département :</label>
+            <select
+              value={stateProf.departement}
+              onChange={e => setStateProf({ ...stateProf, departement: e.target.value })}
+              id="departement"
+              name="departement"
+            >
+              <option value="DEPARTMENT_INFO">DEPARTMENT_INFO</option>
+              <option value="DEPARTMENT_PHYSIQUE">DEPARTMENT_PHYSIQUE</option>
+            </select>
+            <label htmlFor="password">Mot de passe :</label>
+            <input
+              value={stateProf.password}
+              onChange={e => setStateProf({ ...stateProf, password: e.target.value })}
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Entrez votre mot de passe"
+              required
+            />
+            <button type="submit">Confirmer</button>
+          </form>
+        </div>
+      </div>
     </div>
-  )
-} 
+  );
+}
 
-export default  EditProfessur;
+export default EditProfessur;

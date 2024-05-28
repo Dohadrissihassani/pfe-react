@@ -9,7 +9,7 @@ function AdminSideBar() {
     }
 
     function handleSeDeconnecter() {
-        setActiveSubMenu(null); // Hide all submenus
+        setActiveSubMenu(null); 
     }
 
     return (
