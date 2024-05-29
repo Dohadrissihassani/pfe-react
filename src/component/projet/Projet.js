@@ -5,7 +5,6 @@ import ProjetRow from './ProjetRow';
 import ProfSideBar from '../../SideBar/ProfSideBar';
 
 function Projet() {
-<<<<<<< HEAD
 
   const [projets, setProjets] = useState([]);
     const [stateProjet,setProjetState ] = useState([]);
@@ -39,11 +38,6 @@ function Projet() {
     }
 
 
-=======
-  const [projets, setProjets] = useState([]);
-  
-
->>>>>>> c68d2a3fd1ac2ba21bd8276122fb16cdc0aaeb8d
 
   useEffect(() => {
     getProjets();
