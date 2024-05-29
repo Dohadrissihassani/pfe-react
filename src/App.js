@@ -18,13 +18,14 @@ import EditFiliere from './component/Filiere/EditFiliere';
 import FiliereRow from './component/Filiere/FiliereRow';
 import StudentRow from './component/Users/StudentRow';
 import DeleteDisactiveUser from './component/Users/DeleteDisactiveUser';
-import SignUp from './component/LoginSignup/SignUp';
+
 import Student from './component/Users/Student';
 import Projet from './component/projet/Projet';
 import ProfSideBar from './SideBar/ProfSideBar';
 import ViewProf from './component/professeur/ViewProf';
 import AddProjet from './component/projet/AddProjet'
 import ArchivedProjet from './component/projet/ArchivedProjet';
+import EtudeSideBar from './SideBar/EtudeSideBar';
 function App() {
   return (
     
@@ -35,7 +36,8 @@ function App() {
         <Header/>
         <Routes>
       
-        <Route path="/" element={<ProfSideBar/>} />
+        <Route path="/" element={<EtudeSideBar/>} />
+        <Route path="/MesGroupesEncadrant" element={<Groupe/>} />
         <Route path="/ProjetsArchivés" element={<ArchivedProjet/>} />
       <Route path="/" element={<ProfSideBar/>} />
       <Route path="/MonProfil" element={<ViewProf/>} />

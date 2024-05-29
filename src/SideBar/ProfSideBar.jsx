@@ -16,15 +16,15 @@ function ProfSideBar() {
     <>
     
       <div className="nav-header" style={{ backgroundColor: "#1E97F3" }}>
-        <div className="brand-logo">
-          <NavLink to="/">
-            <b className="logo-abbr"><i className="fa-brands fa-pied-piper-pp fa-lg" style={{ color: "#000000" }}></i></b>
-            <span className="logo-compact"><img src="./images/logo-compact.png" alt=""/></span>
-            <span className="brand-title">
-              <h1 style={{ color: "whitesmoke" }}><i className="fa-brands fa-pied-piper-pp fa-2xl" style={{ color: "whitesmoke" }}></i>PFEasy</h1>
-            </span>
-          </NavLink>
-        </div>
+      <div className="brand-logo">
+                    <a href="#">
+                        <b className="logo-abbr"><i className="fa-brands fa-pied-piper-pp fa-lg" style={{ color: "#000000" }}></i> </b>
+                        <span className="logo-compact"><img src="./images/logo-compact.png" alt="" /></span>
+                        <span className="brand-title">
+                            <h1 style={{ color: "whitesmoke" }}><i className="fa-brands fa-pied-piper-pp fa-2Xl" style={{ color: "whitesmoke" }}></i>PFEasy</h1>
+                        </span>
+                    </a>
+                </div>
       </div>
       <div className="nk-sidebar">           
         <div className="nk-nav-scroll">
@@ -71,7 +71,7 @@ function ProfSideBar() {
               </a>
               <ul className="sub-menu" id="gerer-groupe" style={{ display: activeSubMenu === 'gerer-groupe' ? 'block' : 'none' }}>
                 <li>
-                  <NavLink to="/MesGroupesEncadtant" activeClassName="active-link"><i className="fa-solid fa-users-line"></i>Mes Groupes</NavLink>
+                  <NavLink to="/MesGroupesEncadrant" activeClassName="active-link"><i className="fa-solid fa-users-line"></i>Mes Groupes</NavLink>
                 </li>
               </ul>
             </li>

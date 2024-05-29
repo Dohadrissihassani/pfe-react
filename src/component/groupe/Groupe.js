@@ -47,14 +47,24 @@ function Groupe() {
                       </thead>
                       <tbody>
                         <GroupeRow stateGroupe={stateGroupe} />
+                        {/*example of seeing just for a while*/}
+                        <tr>
+                          <td>groupe 1</td>
+                          <td>gestion pfe</td>
+                          <td> <button className="btn btn-light">
+            <i className="fa-solid fa-eye"></i>
+          </button></td>
+                        </tr>
                       </tbody>
                     </table>
                   </div>
+                  {/*
                   <button className="btn btn-info mt-3">
                     <Link to="/groups/add" style={{ color: 'white', textDecoration: 'none' }}>
                       Créer un Groupe
                     </Link>
-                  </button>
+  </button>*/}
+  
                 </div>
               </div>
             </div>
