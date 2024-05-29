@@ -25,7 +25,10 @@ import ProfSideBar from './SideBar/ProfSideBar';
 import ViewProf from './component/professeur/ViewProf';
 import AddProjet from './component/projet/AddProjet'
 import ArchivedProjet from './component/projet/ArchivedProjet';
+
 import EtudeSideBar from './SideBar/EtudeSideBar';
+import AfeccterProject from './component/projet/AfeccterProject';
+
 function App() {
   return (
     
@@ -44,7 +47,8 @@ function App() {
       <Route path="/ModifierCompte" element={<EditProfessur/>} />
       <Route path="/creeProjet" element={<AddProjet/>} />
       <Route path="/ListeProjet" element={<Projet/>} />
-      
+      <Route path="/AffecterProjet" element={<AfeccterProject/>} />
+
           <Route path="/creeProfesseur" element={<AddProfesser/>} />
                     <Route path="/Liste_Professeur" element={<Professeur/>} />
                     <Route path="/admin-approuverEtud" element={<Student/>} />
@@ -53,7 +57,7 @@ function App() {
                     <Route path="/listeDepart" element={<Departement/>} />
                     <Route path="/Liste-Filiere" element={<Filiere/>} />
                     <Route path="/addFiliere" element={<AddFiliere/>} />
-
+                   
                     {/*<Route path="/homeBefore" element={<HomeBefore/>} />*/}
          
 

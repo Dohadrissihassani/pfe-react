@@ -2,6 +2,7 @@ import React from 'react';
 import ProjetRow from './ProjetRow';
 import ProfSideBar from '../../SideBar/ProfSideBar';
 
+
 function ArchivedProjet({ projets, getProjets }) {
   return (
 
