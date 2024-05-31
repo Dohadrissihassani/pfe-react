@@ -28,6 +28,17 @@ import ArchivedProjet from './component/projet/ArchivedProjet';
 
 import EtudeSideBar from './SideBar/EtudeSideBar';
 import AfeccterProject from './component/projet/AfeccterProject';
+import EditCompEtudiant from './component/Etudiant/EditCompEtudiant';
+import AddGroupEtud from './component/Etudiant/AddGroupEtud';
+import ViewGroupEtud from './component/Etudiant/ViewGroupEtud';
+import EditGroup from './component/Etudiant/EditGroupEtud';
+import EditResponsable from './component/Etudiant/EditResponsable';
+import ViewprofEtud from './component/Etudiant/ViewprofEtud';
+import EditGroupEtud from './component/Etudiant/EditGroupEtud';
+import Home from './component/Home/HomeBe';
+
+
+
 
 function App() {
   return (
@@ -39,7 +50,18 @@ function App() {
         <Header/>
         <Routes>
       
-        <Route path="/" element={<EtudeSideBar/>} />
+      <Route path="/HomeBefor" element={<Home/>} />
+
+
+
+      <Route path="/Etudiant's Profil" element={<ViewprofEtud/>} />
+      <Route path=" /ModifierCompteEtudiant" element={<EditCompEtudiant/>} />
+      <Route path="/CréerGroupe" element={<AddGroupEtud/>} />
+      <Route path = "/MonGroupe" element={<ViewGroupEtud/>} />
+      <Route path="/ModifierGroupe" element={<EditGroupEtud/>} /> 
+      <Route path = "/ModifierResponsable"  element ={<EditResponsable />} />
+
+        <Route path="/" element={<ProfSideBar/>} />
         <Route path="/MesGroupesEncadrant" element={<Groupe/>} />
         <Route path="/ProjetsArchivés" element={<ArchivedProjet/>} />
       <Route path="/" element={<ProfSideBar/>} />

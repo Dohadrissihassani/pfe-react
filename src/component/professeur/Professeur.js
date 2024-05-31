@@ -7,7 +7,7 @@ import Departement from '../departement/Departement';
 function Professeur() {
     const [stateProfesseur, setProfesseurState] = useState([]);
     
-     const {id}= 
+     
 
 
     useEffect(() => {

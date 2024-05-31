@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function EtudeSideBar() {
     const [activeSubMenu, setActiveSubMenu] = useState(null);
@@ -37,10 +37,10 @@ function EtudeSideBar() {
                             </a>
                             <ul className="sub-menu" id="gerer-profile" style={{ display: activeSubMenu === 'gerer-profile' ? 'block' : 'none' }}>
                                 <li>
-                                    <NavLink to="/Etudiant's Profil" activeClassName="active-link"><i className="fa-solid fa-user-check"></i>mon profile</NavLink>
+                                    <Link to="/Etudiant's Profil" activeClassName="active-link"><i className="fa-solid fa-user-check"></i>mon profile</Link>
                                 </li>
                                 <li>
-                                    <NavLink to="/ModifierCompteEtudiant" activeClassName="active-link"><i className="fa-solid fa-id-card"></i>modifier profile</NavLink>
+                                    <Link to="/ModifierCompteEtudiant" activeClassName="active-link"><i className="fa-solid fa-id-card"></i>modifier profile</Link>
                                 </li>
                             </ul>
                         </li>
@@ -49,10 +49,10 @@ function EtudeSideBar() {
                                 <i className="fa-solid fa-users-gear"></i><span className="nav-text">Gestion de Groupe</span>
                             </a>
                             <ul className="sub-menu" id="gestion-groupe" style={{ display: activeSubMenu === 'gestion-groupe' ? 'block' : 'none' }}>
-                                <li><NavLink to="/CréerGroupe" activeClassName="active-link"><i className="fa-solid fa-users-line"></i>Créer Groupe</NavLink></li>
-                                <li><NavLink to="/MonGroupe" activeClassName="active-link"><i className="fa-solid fa-users-rectangle"></i>Mon Groupe</NavLink></li>
-                                <li><NavLink to="/ModifierGroupe" activeClassName="active-link"><i className="fa-solid fa-people-group"></i>Modifier Groupe</NavLink></li>
-                                <li><NavLink to="/ModifierResponsable" activeClassName="active-link"><i className="fa-solid fa-user-pen"></i>Modifier Responsable</NavLink></li>
+                                <li><Link to="/CréerGroupe" activeClassName="active-link"><i className="fa-solid fa-users-line"></i>Créer Groupe</Link></li>
+                                <li><Link to="/MonGroupe" activeClassName="active-link"><i className="fa-solid fa-users-rectangle"></i>Mon Groupe</Link></li>
+                                <li><Link to="/ModifierGroupe" activeClassName="active-link"><i className="fa-solid fa-people-group"></i>Modifier Groupe</Link></li>
+                                <li><Link to="/ModifierResponsable" activeClassName="active-link"><i className="fa-solid fa-user-pen"></i>Modifier Responsable</Link></li>
                             </ul>
                         </li>
                         <li>

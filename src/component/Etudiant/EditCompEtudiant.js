@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import EtudeSideBar from '../../SideBar/EtudeSideBar';
 
 function EditCompEtudiant(props) {
 
@@ -44,17 +45,18 @@ const[ stateEtud , setstateEtud]= useState ({});
 
 
   return (
-  
-    <div class="content-body">
+  <>
+  <EtudeSideBar/>
+    <div className="content-body">
          
-    <div class="container" style="margin-left:auto;margin-right: auto;">
+    <div className="container" style="margin-left:auto;margin-right: auto;">
          <h4>Créer votre compte</h4>
-        <htmlFor method="get"
+        <htmlhtmlFor method="get"
         onSumbit = { e=>{
             e.preventDefault();
             putEtudiant(e) ;
         } }>
-            <label for="nom"> Prénom :</label>
+            <label htmlFor="nom"> Prénom :</label>
             <input value= { stateEtud.prenom}
             onChange={e =>{
                 let value = e.target.value;
@@ -73,7 +75,7 @@ const[ stateEtud , setstateEtud]= useState ({});
             }}
             type="text" id="prenom" name="prenom" placeholder="Entrez le prénom" required/>
 
-            <label for="nom">Nom :</label>
+            <label htmlFor="nom">Nom :</label>
             <input value={stateEtud.nom}
                 onChange={e =>{
                     let value = e.target.value;
@@ -92,7 +94,7 @@ const[ stateEtud , setstateEtud]= useState ({});
 
             type="text" id="nom" name="nom" placeholder="Entrez le nom " required/>
 
-            <label for="email">Adresse e-mail :</label>
+            <label htmlFor="email">Adresse e-mail :</label>
             <input value={stateEtud.adressEmail}
                 onChange={e =>{
                     let value = e.target.value;
@@ -109,7 +111,7 @@ const[ stateEtud , setstateEtud]= useState ({});
                     }}
     
              type="email" id="email" name="Code Apogée" placeholder="Entrez l'adresse e-mail" required/>
-            <label for="nom">Code Apogée:</label>
+            <label htmlFor="nom">Code Apogée:</label>
             <input type="text" value={stateEtud.codeApogee}
             onChange={e =>{
                 let value = e.target.value;
@@ -127,7 +129,7 @@ const[ stateEtud , setstateEtud]= useState ({});
              id="Code Apogée" name="Code Apogée"  placeholder="Entrez le code Apogée" required/>
             
 
-            <label for="tel">Téléphone :</label>
+            <label htmlFor="tel">Téléphone :</label>
             <input  value={stateEtud.telephone}
             onChange={e =>{
                 let value = e.target.value;
@@ -143,7 +145,7 @@ const[ stateEtud , setstateEtud]= useState ({});
                     });
                 }}
               type="tel" id="tel" name="tel" placeholder="Entrez le numéro de téléphone" required/>
-            <label for="Filière ">Filière  :</label>
+            <label htmlFor="Filière ">Filière  :</label>
             <select   value={stateEtud.filiere}
             onChange={e =>{
                 let value = e.target.value;
@@ -170,7 +172,7 @@ const[ stateEtud , setstateEtud]= useState ({});
              
             </select> 
 
-            <label for="password">Mot de passe :</label>
+            <label htmlFor="password">Mot de passe :</label>
             <input   value={stateEtud.motdepasse}
             onChange={e =>{
                 let value = e.target.value;
@@ -189,10 +191,12 @@ const[ stateEtud , setstateEtud]= useState ({});
              type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required/>
             
             <button type="submit">Confirmer</button>
-        </htmlFor>
+        </htmlhtmlFor>
     </div>
             
 </div>
+<EtudeSideBar/>
+</>
   )
 }
 
