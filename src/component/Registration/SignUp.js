@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 function SignUp() {
+  const [id,setId]=useState("");
   const [prénom, setPrénom] = useState("");
   const [nom, setNom] = useState("");
   const [adresseEmail, setAdressEmail] = useState("");
@@ -14,7 +15,9 @@ function SignUp() {
     event.preventDefault();
 
     try {
-      await axios.post("http:", {
+      await axios.post("http://localhost:8080/saveEtudiant", {
+    
+      id:id,
         prenom: prénom,
         nom: nom,
         adressEmail: adresseEmail,
@@ -24,6 +27,7 @@ function SignUp() {
         motdepasse: motdepasse,
       });
       alert("User Registration Successfully");
+      setId("")
       setPrénom("");
       setNom("");
       setAdressEmail("");
@@ -41,6 +45,12 @@ function SignUp() {
       <div className="container" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
         <h4>Créer votre compte</h4>
         <form onSubmit={handleSubmit}>
+          <input  type="text" 
+          name="id" 
+          placeholder="id"
+           onChange={(event)=> {setId(event.target.value);
+ 
+           }}/>
           <label htmlFor="prenom">Prénom :</label>
           <input
             type="text"

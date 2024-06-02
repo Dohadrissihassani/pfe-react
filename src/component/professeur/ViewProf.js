@@ -46,7 +46,8 @@ function ViewProf() {
                     <div className="media mb-4 mt-1"></div>
                     <h5 className="m-b-15"><strong>Adresse mail : </strong> {Professeur.email}</h5>
                     <h5 className="m-b-15"><strong>Téléphone :</strong> {Professeur.telephone}</h5>
-                    <Link to={`/ModifierCompte/${id}`}>
+                    {/*<Link to={`/ModifierCompte/${id}`}>*/}
+                    <Link to="/ModifierCompte">
                       <button className="btn btn-info mt-3">Modifie</button>
                     </Link>
                   </div>

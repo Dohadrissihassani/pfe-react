@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import GroupeRow from './GroupeRow';
+import ProfSideBar from '../../SideBar/ProfSideBar';
 
 function Groupe() {
   const [stateGroupe, setGroupeState] = useState([]);
@@ -28,6 +29,8 @@ function Groupe() {
 };
 
   return (
+    <>
+    <ProfSideBar/>
     <div className="content-body">
       <div className="container-fluid mt-3">
         <div className="row">
@@ -57,7 +60,19 @@ function Groupe() {
                         </tr>
                       </tbody>
                     </table>
+                  
                   </div>
+                     {/* Pagination */}
+                     <div className="row" style={{ float: 'right' }}>
+                        <div className="col-12 text-center pagination-container">
+
+                          <button className="btn btn-info icon-btn ms btn-previous">
+                            <i class="bi bi-arrow-left-square"></i>
+                          </button>
+                          <button className="btn btn-info icon-btn ms btn-next">
+                            <i class="bi bi-arrow-right-square"></i>
+                          </button>
+                      </div>
                   {/*
                   <button className="btn btn-info mt-3">
                     <Link to="/groups/add" style={{ color: 'white', textDecoration: 'none' }}>
@@ -71,7 +86,9 @@ function Groupe() {
           </div>
         </div>
       </div>
+      </div>
     </div>
+    </>
   );
 }
 

@@ -6,9 +6,9 @@ import ProfSideBar from '../../SideBar/ProfSideBar';
 function ArchivedProjet({ projets, getProjets }) {
   return (
 
-    
+
     <div>
-        <ProfSideBar/>
+      <ProfSideBar />
       <div className="content-body">
         <div className="container-fluid mt-3">
           <div className="row">
@@ -35,21 +35,23 @@ function ArchivedProjet({ projets, getProjets }) {
                             <td>Gestion Pfe</td>
                             <td>12/04/2024</td>
                             <td> <button className="btn btn-light">
-            <i className="bi bi-box-arrow-down"></i> 
-          </button></td>
+                              <i className="bi bi-box-arrow-down"></i>
+                            </button></td>
                           </tr>
                         </tbody>
                       </table>
-                      {/* Pagination */}
-                      <div className="row">
-                        <div className="col-12 text-center pagination-container">
-                          <button className="btn btn-info ms btn-next">
-                            Next
-                          </button>
-                          <button className="btn btn-info ms btn-previous">
-                            Previous
-                          </button>
+                    
                         </div>
+                          {/* Pagination */}
+                      <div className="row" style={{ float: 'right' }}>
+                        <div className="col-12 text-center pagination-container">
+
+                          <button className="btn btn-info icon-btn ms btn-previous">
+                            <i class="bi bi-arrow-left-square"></i>
+                          </button>
+                          <button className="btn btn-info icon-btn ms btn-next">
+                            <i class="bi bi-arrow-right-square"></i>
+                          </button>
                       </div>
                     </div>
                   </div>

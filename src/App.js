@@ -25,9 +25,10 @@ import ProfSideBar from './SideBar/ProfSideBar';
 import ViewProf from './component/professeur/ViewProf';
 import AddProjet from './component/projet/AddProjet'
 import ArchivedProjet from './component/projet/ArchivedProjet';
-
 import EtudeSideBar from './SideBar/EtudeSideBar';
 import AfeccterProject from './component/projet/AfeccterProject';
+import Login from './component/Registration/Login';
+import Signup from './component/Registration/SignUp'
 
 function App() {
   return (
@@ -38,8 +39,9 @@ function App() {
       <Router>
         <Header/>
         <Routes>
-      
-        <Route path="/" element={<EtudeSideBar/>} />
+       <Route path="SignUp" element={<Signup/>}/>
+      <Route path="/login" element={<Login/>}/>
+        <Route path="/etudiant" element={<EtudeSideBar/>} />
         <Route path="/MesGroupesEncadrant" element={<Groupe/>} />
         <Route path="/ProjetsArchivés" element={<ArchivedProjet/>} />
       <Route path="/" element={<ProfSideBar/>} />
