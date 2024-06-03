@@ -4,36 +4,30 @@ import { Link } from 'react-router-dom'; // Ensure react-router-dom is installed
 import EtudeSideBar from '../../SideBar/EtudeSideBar';
 
 function EditGroupEtud() {
-  const [stateGroupe, setGroupeState] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [etudiants, setEtudiants] = useState([]);
 
   useEffect(() => {
-    loadGroupe();
+    // Fetch group data from the backend when the component mounts
+    axios.get('/api/group')
+      .then(response => {
+        setEtudiants(response.data.etudiants);
+      })
+      .catch(error => {
+        console.error("Error fetching group data:", error);
+      });
   }, []);
 
-  const loadGroupe = async () => {
-    try {
-      const result = await axios.get('http://localhost:8080//groupe'); // Update with your backend endpoint
-      setGroupeState(result.data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
+  const deleteEtudiant = (id) => {
+    // Delete student by id
+    axios.delete(`/api/etudiant/${id}`)
+      .then(response => {
+        // Remove the deleted student from the state
+        setEtudiants(etudiants.filter(etudiant => etudiant.id !== id));
+      })
+      .catch(error => {
+        console.error("Error deleting student:", error);
+      });
   };
-
-  const deleteMember = async (id) => {
-    try {
-      await axios.delete(`http://localhost:8080//membres/${id}`); // Update with your backend endpoint
-      setGroupeState(stateGroupe.filter(member => member.id !== id));
-    } catch (err) {
-      alert('Failed to delete member: ' + err.message);
-    }
-  };
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
 
   return (
     <>
@@ -44,8 +38,8 @@ function EditGroupEtud() {
             <div className="col-lg-12">
               <div className="card">
                 <div className="card-body">
-                  <h4 className="card-title">Mon Groupe</h4>
-                  <div className="active-member">
+                  <h4 className="card-title">Modifier votre  Groupe</h4>
+                  <div className="active-etudiant">
                     <div className="table-responsive">
                       <table className="table table-xs mb-0">
                         <thead>
@@ -54,25 +48,33 @@ function EditGroupEtud() {
                             <th>Le prénom</th>
                             <th>Email</th>
                             <th>Code Apogée</th>
-                            <th>Action</th>
+                            <th> supprimer  member dans Groupe  </th>
                           </tr>
                         </thead>
                         <tbody>
-                          {stateGroupe.map(member => (
-                            <tr key={member.id}>
-                              <td>{member.nom}</td>
-                              <td>{member.prenom}</td>
-                              <td>{member.email}</td>
-                              <td>{member.codeApogee}</td>
-                              <td>
-                                <button className="btn btn-light" onClick={() => deleteMember(member.id)}>
+
+                            
+                              <tr>
+                              <td> Drissi hassani</td>
+                              <td> Doha</td>
+                              <td>doha@gmail.com</td>
+                              <td>4444422</td>
+                               <td > <button className="btn btn-light" >
                                   <i className="bi bi-trash"></i>
                                 </button>
-                                <Link to={`/editCompEtudiant/${member.id}`}>
-                                  <button className="btn btn-light">
-                                    <i className="fa-regular fa-pen-to-square"></i>
-                                  </button>
-                                </Link>
+                                </td>
+                              </tr> 
+                          {etudiants.map(etudiant => (
+                            <tr key={etudiant.id}>
+                              <td>{etudiant.nom}</td>
+                              <td>{etudiant.prenom}</td>
+                              <td>{etudiant.email}</td>
+                              <td>{etudiant.codeApogee}</td>
+                              <td>
+                                <button className="btn btn-light" onClick={() => deleteEtudiant(etudiant.id)}>
+                                  <i className="bi bi-trash"></i>
+                                </button>
+                               
                               </td>
                             </tr>
                           ))}

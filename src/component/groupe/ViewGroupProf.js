@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'; // Combine all React imports here
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ProfSideBar from '../../SideBar/ProfSideBar';
+
 function ViewGroupProf() {
     
   const [etudiants, setEtudiants] = useState([]);
@@ -32,7 +32,7 @@ function ViewGroupProf() {
             <div className="col-lg-12">
               <div className="card">
                 <div className="card-body">
-                  <h4 className="card-title">Mon Groupe</h4>
+                  <h4 className="card-title"> Groupe</h4>
                   <div className="active-member">
                     <div className="table-responsive">
                       <table className="table table-xs mb-0">
