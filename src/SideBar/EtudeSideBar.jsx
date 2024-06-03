@@ -37,7 +37,7 @@ function EtudeSideBar() {
                             </a>
                             <ul className="sub-menu" id="gerer-profile" style={{ display: activeSubMenu === 'gerer-profile' ? 'block' : 'none' }}>
                                 <li>
-                                    <Link to="/Etudiant's Profil" activeClassName="active-link"><i className="fa-solid fa-user-check"></i>mon profile</Link>
+                                    <Link to="/EtudiantProfil" activeClassName="active-link"><i className="fa-solid fa-user-check"></i>mon profile</Link>
                                 </li>
                                 <li>
                                     <Link to="/ModifierCompteEtudiant" activeClassName="active-link"><i className="fa-solid fa-id-card"></i>modifier profile</Link>
@@ -49,8 +49,8 @@ function EtudeSideBar() {
                                 <i className="fa-solid fa-users-gear"></i><span className="nav-text">Gestion de Groupe</span>
                             </a>
                             <ul className="sub-menu" id="gestion-groupe" style={{ display: activeSubMenu === 'gestion-groupe' ? 'block' : 'none' }}>
-                                <li><Link to="/CréerGroupe" activeClassName="active-link"><i className="fa-solid fa-users-line"></i>Créer Groupe</Link></li>
-                                <li><Link to="/MonGroupe" activeClassName="active-link"><i className="fa-solid fa-users-rectangle"></i>Mon Groupe</Link></li>
+                                <li><Link to="/CreateGroup" activeClassName="active-link"><i className="fa-solid fa-users-line"></i>Créer Groupe</Link></li>
+                                <li><Link to="/MonGroupeEtud" activeClassName="active-link"><i className="fa-solid fa-users-rectangle"></i>Mon Groupe</Link></li>
                                 <li><Link to="/ModifierGroupe" activeClassName="active-link"><i className="fa-solid fa-people-group"></i>Modifier Groupe</Link></li>
                                 <li><Link to="/ModifierResponsable" activeClassName="active-link"><i className="fa-solid fa-user-pen"></i>Modifier Responsable</Link></li>
                             </ul>

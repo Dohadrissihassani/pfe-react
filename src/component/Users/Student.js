@@ -44,7 +44,7 @@ function Student() {
     return (
         <>
     <AdminSideBar/>
-    <AdminSideBar/>
+    
       
       <div>
           <div className="content-body">

@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import GroupeRow from './GroupeRow';
-import ProfSideBar from '../../SideBar/ProfSideBar';
-
-function Groupe() {
+import EtudeSideBar from '../../SideBar/EtudeSideBar';
+function GroupEtudView() {
+ 
   const [stateGroupe, setGroupeState] = useState([]);
 
   useEffect(() => {
@@ -30,9 +30,10 @@ function Groupe() {
 
   return (
     <>
-    <ProfSideBar/>
+    <EtudeSideBar/>
+   
     <div className="content-body">
-      hada dyal prof
+    hada dyal etidiant
       <div className="container-fluid mt-3">
         <div className="row">
           <div className="col-lg-12">
@@ -46,7 +47,7 @@ function Groupe() {
                         <tr className="tr_table zero-configuration">
                           <th>Groupe</th>
                           <th>Projet</th>
-                          <th>Consulter</th>
+                          <th>Mombres</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -95,4 +96,6 @@ function Groupe() {
   );
 }
 
-export default Groupe;
+
+
+export default GroupEtudView

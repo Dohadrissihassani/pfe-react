@@ -6,12 +6,13 @@ function GroupeRow({ stateGroupe }) {
     <tr key={d.id}>
       <td>{d.nom}</td>
       <td>{d.projet?.titre || 'No Project'}</td>
+      //this is to see if i'm sure to put eyes button to see the project
       <td>
-        <Link to={`/edit/${d.id}`}>
+        <Link to={`/ViewGroup`}>
           <button className="btn btn-light">
             <i className="fa-solid fa-eye"></i>
           </button>
-        </Link>
+  </Link>
       </td>
     </tr>
   ));

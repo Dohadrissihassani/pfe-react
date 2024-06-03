@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import RespoSideBar from '../../SideBar/RespoSideBar';
 
 function LesProjetsRespo() {
     const [projets, setProjets] = useState([]);
@@ -30,6 +31,8 @@ function LesProjetsRespo() {
     }, []);
 
     return (
+        <>
+        <RespoSideBar/>
         <div className="content-body">
             <div className="container-fluid mt-3">
                 <div className="row">
@@ -73,7 +76,6 @@ function LesProjetsRespo() {
                                                 </a>
                                             </li>
                                             <li className="page-item"><a className="page-link" href="#">1</a></li>
-                                            <li className="page-item"><a className="page-link" href="#">2</a></li>
                                             <li className="page-item">
                                                 <a className="page-link" href="#" aria-label="Next">
                                                     <span aria-hidden="true">&raquo;</span>
@@ -89,6 +91,7 @@ function LesProjetsRespo() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

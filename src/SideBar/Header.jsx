@@ -48,9 +48,9 @@ const Header = () => {
                                 <div className="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                     <div className="dropdown-content-body">
                                         <ul>
-                                            <li>
+                                            {/*<li>
                                                 <i className="icon-user"></i> <span>Le Nom d'utilisateur</span>
-                                            </li>
+                                             </li>*/}
                                             <hr className="my-2" />
                                             <li><a href="homeBefore.html"><i className="icon-key"></i> <span>Se deconnecter</span></a></li>
                                         </ul>

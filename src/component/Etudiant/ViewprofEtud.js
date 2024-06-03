@@ -49,7 +49,9 @@ function ViewprofEtud() {
                                     <h5 className="m-b-15"><strong>Adresse mail :</strong> {Etudiant.email}</h5>
                                     <h5 className="m-b-15"><strong>Code Apogée :</strong> {Etudiant.codeApogee}</h5>
                                     <h5 className="m-b-15"><strong>Téléphone :</strong>{Etudiant.telephone}</h5>
-                                    <Link to={`/ModifierCompteEtud/${id}`}>
+                                    {/* {/*<Link to={`/ModifierCompteEtudiant/${id}`}> */}
+
+                                    <Link to={`/ModifierCompteEtudiant`}>
                                         <button className="btn btn-info mt-3">Modifier</button>
                                     </Link>
                                 </div>

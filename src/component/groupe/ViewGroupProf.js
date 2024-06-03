@@ -1,10 +1,10 @@
+import React from 'react'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import EtudeSideBar from '../../SideBar/EtudeSideBar';
 import ProfSideBar from '../../SideBar/ProfSideBar';
-
-function ViewGroupEtud() {
+function ViewGroupProf() {
+    
   const [etudiants, setEtudiants] = useState([]);
   const { id } = useParams();
 
@@ -24,7 +24,7 @@ function ViewGroupEtud() {
  
 
   return (
-    <>
+<>
     <ProfSideBar/>
       <div className="content-body">
         <div className="container-fluid mt-3">
@@ -79,8 +79,10 @@ function ViewGroupEtud() {
         </div>
       </div> 
      
-    </>
+
+  </>
+
   );
 }
 
-export default ViewGroupEtud;
+export default ViewGroupProf;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import RespoSideBar from '../../SideBar/RespoSideBar';
 
 function AffecterEncadRespo() {
     const [groups, setGroups] = useState([]);
@@ -46,6 +47,8 @@ function AffecterEncadRespo() {
     };
 
     return (
+        <>
+        <RespoSideBar/>
         <div className="content-body">
             <div className="container">
                 <h4>Affecter un encadrant à un groupe</h4>
@@ -68,6 +71,7 @@ function AffecterEncadRespo() {
                 </form>
             </div>
         </div>
+        </>
     );
 }
 

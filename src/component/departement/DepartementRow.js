@@ -12,11 +12,7 @@ function DepartementRow(props) {
         
         <td> {d.Responsable}     </td>
         
-       <td>
-        <link to ={'edit/${d.id}'}>
-        <button class="btn btn-light" ><i class="fa-regular fa-pen-to-square"></i></button>
-        </link>
-        </td>
+      
 
      </tr>
 

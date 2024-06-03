@@ -60,7 +60,7 @@ function Professeur() {
                                 <div className="card-body">
                                     <h4 className="card-title">La Liste des Professeurs</h4>
                                     <div className="active-member">
-                                        <Link to="/addProf">
+                                        <Link to="/creeProfesseur">
                                             <div className="row">
                                                 <div className="col-7">
                                                     <div className="text-left">
@@ -87,7 +87,10 @@ function Professeur() {
                                                         <td>el bousani</td>
                                                         <td>my email</td>
                                                         <td>SMI</td>
-                                                        <td><button className="btn btn-light" ><i className="fa-regular fa-pen-to-square"></i></button></td>
+                                                        <td>
+                                                        <Link to={`/EditProfesseurByAdmin`}>
+                                                            <button className="btn btn-light" ><i className="fa-regular fa-pen-to-square"></i></button>
+                                                            </Link></td>
                                                     </tr>
                                                      {/*Example of seeing hihi */}
                                                 </thead>

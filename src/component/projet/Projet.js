@@ -15,7 +15,7 @@ function Projet() {
 
   const getProjet = () => {
     axios
-      .get("  ")
+    .get("http://localhost:8080/Projets/projet")
       .then(response => {
         let Projet = response.data
         setProjetState(
@@ -33,9 +33,6 @@ function Projet() {
 
       }).catch(err => alert(err));
   };
-  const sendTest = () => {
-    console.log("asdf");
-  }
 
 
 

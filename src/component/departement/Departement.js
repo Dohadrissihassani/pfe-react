@@ -14,7 +14,7 @@ function Departement() {
 
  const getDepartement = () => {
     axios
-        .get("http://localhost:9090/professeur/info")
+        .get("http://localhost:9090/")
         .then(response => {
             let Departement= response.data;
            setDepartementState(
@@ -70,7 +70,7 @@ const sendTest= () =>{
                                                  <th>département</th>
                                                  <th>Description</th>
                                                  <th>Le Responsable</th>
-                                                 <th>Action</th>
+                                                
                                                 
                                              </tr>
                                          </thead>
@@ -81,6 +81,11 @@ const sendTest= () =>{
            
                                          </tbody>
                                       
+                                      <tr>
+                                        <td>physique</td>
+                                        <td>description of department</td>
+                                        <td>Ben lehmar</td>
+                                      </tr>
                                      </table>
                                 
                                  </div>

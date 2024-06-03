@@ -22,6 +22,7 @@ import DeleteDisactiveUser from './component/Users/DeleteDisactiveUser';
 import Student from './component/Users/Student';
 import Projet from './component/projet/Projet';
 import ProfSideBar from './SideBar/ProfSideBar';
+import RespoSideBar from './SideBar/RespoSideBar';
 import ViewProf from './component/professeur/ViewProf';
 import AddProjet from './component/projet/AddProjet'
 import ArchivedProjet from './component/projet/ArchivedProjet';
@@ -32,14 +33,17 @@ import Login from './component/Registration/Login';
 import Signup from './component/Registration/SignUp'
 
 import EditCompEtudiant from './component/Etudiant/EditCompEtudiant';
-import AddGroupEtud from './component/Etudiant/AddGroupEtud';
 import ViewGroupEtud from './component/Etudiant/ViewGroupEtud';
 import EditGroup from './component/Etudiant/EditGroupEtud';
 import EditResponsable from './component/Etudiant/EditResponsable';
 import ViewprofEtud from './component/Etudiant/ViewprofEtud';
 import EditGroupEtud from './component/Etudiant/EditGroupEtud';
 import Home from './component/Home/HomeBe';
-
+import GroupEtudView from './component/groupe/GroupEtudView';
+import CreateGroup from './component/Etudiant/CreateGroup';
+import EditProfByAdmin from './component/professeur/EditProfByAdmin';
+import LesProjetsRespo from './component/ResponsablePfe/LesProjetsRespo';
+import AffeccterEncadRespo from './component/ResponsablePfe/AffecterEncadRespo';
 
 
 
@@ -52,45 +56,45 @@ function App() {
      
       <Router>
         <Header/>
+       
         <Routes>
 
        <Route path="SignUp" element={<Signup/>}/>
       <Route path="/login" element={<Login/>}/>
-        <Route path="/etudiant" element={<EtudeSideBar/>} />
-
       
-      <Route path="/HomeBefor" element={<Home/>} />
 
-
-
-      <Route path="/Etudiant's Profil" element={<ViewprofEtud/>} />
-      <Route path=" /ModifierCompteEtudiant" element={<EditCompEtudiant/>} />
-      <Route path="/CréerGroupe" element={<AddGroupEtud/>} />
-      <Route path = "/MonGroupe" element={<ViewGroupEtud/>} />
-      <Route path="/ModifierGroupe" element={<EditGroupEtud/>} /> 
-      <Route path = "/ModifierResponsable"  element ={<EditResponsable />} />
-
-        <Route path="/" element={<ProfSideBar/>} />
-
-        <Route path="/MesGroupesEncadrant" element={<Groupe/>} />
+        {/*   Professor dashboard      */}
+        <Route path="/Professeur" element={<ProfSideBar/>} />
+        <Route path="/MonProfil" element={<ViewProf/>} />
+        <Route path="/ModifierCompte" element={<EditProfessur/>} />
+        <Route path="/creeProjet" element={<AddProjet/>} />
+        <Route path="/AffecterProjet" element={<AfeccterProject/>} />
+        <Route path="/ListeProjet" element={<Projet/>} />
         <Route path="/ProjetsArchivés" element={<ArchivedProjet/>} />
-      <Route path="/" element={<ProfSideBar/>} />
-      <Route path="/MonProfil" element={<ViewProf/>} />
-      <Route path="/ModifierCompte" element={<EditProfessur/>} />
-      <Route path="/creeProjet" element={<AddProjet/>} />
-      <Route path="/ListeProjet" element={<Projet/>} />
-      <Route path="/AffecterProjet" element={<AfeccterProject/>} />
+        <Route path="/MesGroupesEncadrant" element={<Groupe/>} />
+        <Route path="/ViewGroup" element={<ViewGroupEtud/>} />
+   
+        {/*   Admin Dashboard */}
+        <Route path="/admin" element={<AdminSideBar/>} />
+        <Route path="/creeProfesseur" element={<AddProfesser/>} />
+        <Route path="/Liste_Professeur" element={<Professeur/>} />
+        <Route path="EditProfesseurByAdmin" element={<EditProfByAdmin/>} />
+        <Route path="/admin-approuverEtud" element={<Student/>} />
+        <Route path="/Suprim_disactiveCompte" element={<DeleteDisactiveUser/>} />
+        <Route path="/creeDepartement" element={<AddDepartement/>} />
+        <Route path="/listeDepart" element={<Departement/>} />
+        <Route path="/Liste-Filiere" element={<Filiere/>} />      
+        <Route path="/addFiliere" element={<AddFiliere/>} />       
 
-          <Route path="/creeProfesseur" element={<AddProfesser/>} />
-                    <Route path="/Liste_Professeur" element={<Professeur/>} />
-                    <Route path="/admin-approuverEtud" element={<Student/>} />
-                    <Route path="/Suprim_disactiveCompte" element={<DeleteDisactiveUser/>} />
-                    <Route path="/creeDepartement" element={<AddDepartement/>} />
-                    <Route path="/listeDepart" element={<Departement/>} />
-                    <Route path="/Liste-Filiere" element={<Filiere/>} />
-                    <Route path="/addFiliere" element={<AddFiliere/>} />
+         {/*    RESPONSABLE Dashboard */} 
+         <Route path="/responsable" element={<RespoSideBar/>} />
+        <Route path="/LesProjetsResponsable" element={<LesProjetsRespo/>} />
+         <Route path="/AffecterEncadrant" element={<AffeccterEncadRespo/>} />
+           {/*    Etudiant Dashboard */} 
                    
-                    {/*<Route path="/homeBefore" element={<HomeBefore/>} />*/}
+                   
+                    
+       
          
 
         </Routes>

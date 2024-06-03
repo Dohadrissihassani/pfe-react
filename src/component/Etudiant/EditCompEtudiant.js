@@ -1,203 +1,107 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import EtudeSideBar from '../../SideBar/EtudeSideBar';
 
-function EditCompEtudiant(props) {
+function EditCompEtudiant() {
+  const [stateEtud, setStateEtud] = useState({});
+  const { id } = useParams();
+  const navigate = useNavigate();
 
-const[ stateEtud , setstateEtud]= useState ({});
-
-
- useEffect ( () =>{
-    let id =props.match.params.id;
+  useEffect(() => {
     getEtudiantById(id);
-  },  []);
-   
-  const getEtudiantById = id =>{
-   axios
-   .get( ' ')
-    .then (d => {
-       let etudiant = d.data;
+  }, [id]);
 
-       setstateEtud({
-         id:etudiant.id,
-         prénom : etudiant.prenom,
-         nom:etudiant. nom,
-         adresseEmail:  etudiant.adressEmail,
-         codeApogee:  etudiant.codeApogee,
-         telephone: etudiant. telephone,
-         filière : etudiant.filiere,
-         motdepasse:etudiant.motdepasse
-    });
-
-  })
-   .catch(err =>alert(err));
+  const getEtudiantById = (id) => {
+    axios.get(`URL/${id}`)
+      .then(d => {
+        let etudiant = d.data;
+        setStateEtud({
+          id: etudiant.id,
+          prenom: etudiant.prenom,
+          nom: etudiant.nom,
+          adressEmail: etudiant.adressEmail,
+          codeApogee: etudiant.codeApogee,
+          telephone: etudiant.telephone,
+          filiere: etudiant.filiere,
+          motdepasse: etudiant.motdepasse
+        });
+      })
+      .catch(err => alert(err));
   };
 
-    const putEtudiant =( e)=>{
-        console.log(setstateEtud);
-        axios
-        .put('   '.setstateEtud)
-        .then ( d=> {
-            props.history.puch("/");
-        })
-        .catch (err=> alert(err));
-    }
+  const putEtudiant = (e) => {
+    e.preventDefault();
+    axios.put(`URL/${stateEtud.id}`, stateEtud)
+      .then(d => {
+        navigate("/");
+      })
+      .catch(err => alert(err));
+  };
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setStateEtud(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
 
   return (
-  <>
-  <EtudeSideBar/>
-    <div className="content-body">
-         
-    <div className="container" style="margin-left:auto;margin-right: auto;">
-         <h4>Créer votre compte</h4>
-        <htmlhtmlFor method="get"
-        onSumbit = { e=>{
-            e.preventDefault();
-            putEtudiant(e) ;
-        } }>
-            <label htmlFor="nom"> Prénom :</label>
-            <input value= { stateEtud.prenom}
-            onChange={e =>{
-                let value = e.target.value;
-                setstateEtud ({
-                    prenom :value,
-                    id: stateEtud.id,
-                    nom :stateEtud.nom,
-                    adressEmail:stateEtud.adressEmail,
-                    codeApogee: stateEtud.codeApogee,
-
-                      telephone: stateEtud.telephone,
-                      filiere:stateEtud.filiere,
-                     motdepasse: stateEtud.motdepasse
-
-                });
-            }}
-            type="text" id="prenom" name="prenom" placeholder="Entrez le prénom" required/>
+    <>
+      <EtudeSideBar />
+      <div className="content-body">
+        <div className="container" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+          <h4>Modifier votre compte</h4>
+          <form onSubmit={putEtudiant}>
+            <label htmlFor="prenom">Prénom :</label>
+            <input value={stateEtud.prenom || ''}
+                   onChange={handleChange}
+                   type="text" id="prenom" name="prenom" placeholder="Entrez le prénom" required />
 
             <label htmlFor="nom">Nom :</label>
-            <input value={stateEtud.nom}
-                onChange={e =>{
-                    let value = e.target.value;
-                    setstateEtud ({
-                        prenom :stateEtud.prenom,
-                        id: stateEtud.id,
-                        nom :value,
-                        adressEmail:stateEtud.adressEmail,
-                        codeApogee: stateEtud.codeApogee,
-                        telephone: stateEtud.telephone,
-                        filiere:stateEtud.filiere,
-                         motdepasse: stateEtud.motdepasse
-    
-                    });
-                }}
+            <input value={stateEtud.nom || ''}
+                   onChange={handleChange}
+                   type="text" id="nom" name="nom" placeholder="Entrez le nom" required />
 
-            type="text" id="nom" name="nom" placeholder="Entrez le nom " required/>
+            <label htmlFor="adressEmail">Adresse e-mail :</label>
+            <input value={stateEtud.adressEmail || ''}
+                   onChange={handleChange}
+                   type="email" id="adressEmail" name="adressEmail" placeholder="Entrez l'adresse e-mail" required />
 
-            <label htmlFor="email">Adresse e-mail :</label>
-            <input value={stateEtud.adressEmail}
-                onChange={e =>{
-                    let value = e.target.value;
-                    setstateEtud ({
-                        prenom :stateEtud.prenom,
-                        id: stateEtud.id,
-                        nom :stateEtud.nom,
-                        adressEmail:value,
-                        codeApogee: stateEtud.codeApogee,
-                        telephone: stateEtud.telephone,
-                        filiere:stateEtud.filiere,
-                         motdepasse: stateEtud.motdepasse
-                        });
-                    }}
-    
-             type="email" id="email" name="Code Apogée" placeholder="Entrez l'adresse e-mail" required/>
-            <label htmlFor="nom">Code Apogée:</label>
-            <input type="text" value={stateEtud.codeApogee}
-            onChange={e =>{
-                let value = e.target.value;
-                setstateEtud ({
-                    prenom :stateEtud.prenom,
-                    id: stateEtud.id,
-                    nom :stateEtud.nom,
-                    adressEmail:stateEtud.adressEmail,
-                    codeApogee: value,
-                    telephone: stateEtud.telephone,
-                    filiere:stateEtud.filiere,
-                     motdepasse: stateEtud.motdepasse
-                    });
-                }}
-             id="Code Apogée" name="Code Apogée"  placeholder="Entrez le code Apogée" required/>
-            
+            <label htmlFor="codeApogee">Code Apogée:</label>
+            <input value={stateEtud.codeApogee || ''}
+                   onChange={handleChange}
+                   type="text" id="codeApogee" name="codeApogee" placeholder="Entrez le code Apogée" required />
 
-            <label htmlFor="tel">Téléphone :</label>
-            <input  value={stateEtud.telephone}
-            onChange={e =>{
-                let value = e.target.value;
-                setstateEtud ({
-                    prenom :stateEtud.prenom,
-                    id: stateEtud.id,
-                    nom :stateEtud.nom,
-                    adressEmail:stateEtud.adressEmail,
-                    codeApogee: stateEtud.codeApogee,
-                    telephone: value,
-                    filiere:stateEtud.filiere,
-                     motdepasse: stateEtud.motdepasse
-                    });
-                }}
-              type="tel" id="tel" name="tel" placeholder="Entrez le numéro de téléphone" required/>
-            <label htmlFor="Filière ">Filière  :</label>
-            <select   value={stateEtud.filiere}
-            onChange={e =>{
-                let value = e.target.value;
-                setstateEtud ({
-                    prenom :stateEtud.prenom,
-                    id: stateEtud.id,
-                    nom :stateEtud.nom,
-                    adressEmail:stateEtud.adressEmail,
-                    codeApogee: stateEtud.codeApogee,
-                    telephone: stateEtud.telephone,
-                    filiere:value,
-                     motdepasse: stateEtud.motdepasse
-                    });
-                }}
+            <label htmlFor="telephone">Téléphone :</label>
+            <input value={stateEtud.telephone || ''}
+                   onChange={handleChange}
+                   type="tel" id="telephone" name="telephone" placeholder="Entrez le numéro de téléphone" required />
 
-            id="Filière " name="Filière ">
-                <option value="SMI">SMI</option>
-                <option value="SMA">SMA</option>
-                <option value="SMC">SMC</option>
-                <option value="SMP">SMP</option>
-                <option value="SMP">STU</option>
-                <option value="SMP">SVI</option>
+            <label htmlFor="filiere">Filière :</label>
+            <select value={stateEtud.filiere || ''}
+                    onChange={handleChange}
+                    id="filiere" name="filiere">
+              <option value="SMI">SMI</option>
+              <option value="SMA">SMA</option>
+              <option value="SMC">SMC</option>
+              <option value="SMP">SMP</option>
+              <option value="STU">STU</option>
+              <option value="SVI">SVI</option>
+            </select>
 
-             
-            </select> 
+            <label htmlFor="motdepasse">Mot de passe :</label>
+            <input value={stateEtud.motdepasse || ''}
+                   onChange={handleChange}
+                   type="password" id="motdepasse" name="motdepasse" placeholder="Entrez votre mot de passe" required />
 
-            <label htmlFor="password">Mot de passe :</label>
-            <input   value={stateEtud.motdepasse}
-            onChange={e =>{
-                let value = e.target.value;
-                setstateEtud ({
-                    prenom :stateEtud.prenom,
-                    id: stateEtud.id,
-                    nom :stateEtud.nom,
-                    adressEmail:stateEtud.adressEmail,
-                    codeApogee: stateEtud.codeApogee,
-                    telephone: stateEtud.telephone,
-                    filiere:stateEtud.filiere,
-                     motdepasse: value
-                    });
-                }}
-
-             type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required/>
-            
             <button type="submit">Confirmer</button>
-        </htmlhtmlFor>
-    </div>
-            
-</div>
-<EtudeSideBar/>
-</>
-  )
+          </form>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default EditCompEtudiant
+export default EditCompEtudiant;

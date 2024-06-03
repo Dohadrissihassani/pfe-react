@@ -1,66 +1,86 @@
-import React, { useState } from 'react';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import EtudeSideBar from '../../SideBar/EtudeSideBar';
 
-function AddGroupe() {
-  const [name, setName] = useState('');
-  const [responsable, setResponsable] = useState('');
+function EditGroup() {
+  const [stateGroup, setStateGroup] = useState({
+    id: "",
+    nom: "",
+    projet: {
+      titre: ""
+    }
+  });
 
-  const submit = (e) => {
-    e.preventDefault();
-    const data = { name, responsable };
-    postGroupe(data);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getGroupById(id);
+  }, [id]);
+
+  const getGroupById = async (id) => {
+    try {
+      const response = await axios.get(`http://localhost:9090/group/${id}`);
+      const group = response.data;
+      setStateGroup({
+        id: group.id,
+        nom: group.nom,
+        projet: {
+          titre: group.projet.titre
+        }
+      });
+    } catch (error) {
+      alert(error);
+    }
   };
 
-  const postGroupe = (data) => {
-    axios
-      .post('/api/groupes', data) // replace with your actual endpoint
-      .then(d => {
-        console.log(d);
-        alert('Group created successfully');
-      })
-      .catch(err => alert(err));
+  const putGroup = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.put(`http://localhost:9090/group/${stateGroup.id}`, stateGroup);
+      navigate("/groups");
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (
-    <div className="content-body">
-      <div className="container-fluid mt-3">
-        <div className="row">
-          <div className="col-lg-12">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Créer un Groupe</h4>
-                <form onSubmit={submit}>
-                  <div className="form-group">
-                    <label>Nom du Groupe</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Responsable</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={responsable}
-                      onChange={(e) => setResponsable(e.target.value)}
-                      required
-                    />
-                  </div>
-                  <button type="submit" className="btn btn-primary mt-3">
-                    Enregistrer
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
+    <div>
+      <EtudeSideBar/>
+      <div className="content-body">
+        <div className="container">
+          <form onSubmit={putGroup}>
+            <h5 style={{ color: "#1E97F3", textAlign: "center" }}>Modifier le Groupe</h5>
+            <label htmlFor="nom">Nom du Groupe :</label>
+            <input
+              value={stateGroup.nom}
+              onChange={e => setStateGroup({ ...stateGroup, nom: e.target.value })}
+              type="text"
+              id="nom"
+              name="nom"
+              placeholder="Entrez le nom du groupe"
+              required
+            />
+            <label htmlFor="projet">Titre du Projet :</label>
+            <input
+              value={stateGroup.projet.titre}
+              onChange={e => setStateGroup({
+                ...stateGroup,
+                projet: { ...stateGroup.projet, titre: e.target.value }
+              })}
+              type="text"
+              id="projet"
+              name="projet"
+              placeholder="Entrez le titre du projet"
+              required
+            />
+            <button type="submit">Confirmer</button>
+          </form>
         </div>
       </div>
     </div>
   );
 }
 
-export default AddGroupe;
+export default EditGroup;

@@ -23,7 +23,7 @@ function AddProjet(props) {
    
        const postProjet =data =>{
          axios
-         .post("",data)
+         .post("http://localhost:8080/Projets/add", data)
          .then(d => {
            console.log(d);
            props.history.push("/ListeProjet");
