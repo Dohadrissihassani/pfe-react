@@ -62,9 +62,9 @@ function App() {
        <Route path="SignUp" element={<Signup/>}/>
       <Route path="/login" element={<Login/>}/>
       
-
-        {/*   Professor dashboard      */}
-        <Route path="/Professeur" element={<ProfSideBar/>} />
+      
+        {/*  /Professeur Professor dashboard      */}
+        <Route path="/" element={<ProfSideBar/>} />
         <Route path="/MonProfil" element={<ViewProf/>} />
         <Route path="/ModifierCompte" element={<EditProfessur/>} />
         <Route path="/creeProjet" element={<AddProjet/>} />
