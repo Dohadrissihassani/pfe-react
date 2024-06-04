@@ -56,6 +56,29 @@ function EditResponsable() {
                           </tr>
                         </thead>
                         <tbody>
+
+                        <tr>
+                           <td>Assia</td>
+                              <td>EL BOUSSANI</td>
+                              <td>ASSIA@gmail</td>
+                              <td>2100000</td>
+                         <td> <input type="radio" id="etudient" name="etudiant" value="Responsable" /></td>
+                                                     </tr>
+                            <tr>
+                               <td>Rofaydae</td>
+                              <td>Alasely</td>
+                           <td>Rofaydae@gmail.com</td>
+                             <td>2100000</td>
+                        <td> <input type="radio" id="etudient" name="etudiant" value="Responsable"/></td>
+                             </tr>
+                             <tr>
+                                  <td>Doha</td>
+                                   <td>Drissi</td>
+                                   <td>Doha@gmail.com</td>
+                                   <td>2100000</td>
+                                <td> <input type="radio" id="etudient" name="etudiant" value="Responsable"/></td>
+                                 </tr>
+
                           {etudiants.map(etudiant => (
                             <tr key={etudiant.id}>
                               <td>{etudiant.nom}</td>

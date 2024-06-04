@@ -44,6 +44,7 @@ import CreateGroup from './component/Etudiant/CreateGroup';
 import EditProfByAdmin from './component/professeur/EditProfByAdmin';
 import LesProjetsRespo from './component/ResponsablePfe/LesProjetsRespo';
 import AffeccterEncadRespo from './component/ResponsablePfe/AffecterEncadRespo';
+import ViewGroupProf from './component/groupe/ViewGroupProf';
 
 
 
@@ -72,7 +73,7 @@ function App() {
         <Route path="/ListeProjet" element={<Projet/>} />
         <Route path="/ProjetsArchivés" element={<ArchivedProjet/>} />
         <Route path="/MesGroupesEncadrant" element={<Groupe/>} />
-        <Route path="/ViewGroup" element={<ViewGroupEtud/>} />
+        <Route path="/ViewGroup" element={<ViewGroupProf/>} />
    
         {/*   Admin Dashboard */}
         <Route path="/admin" element={<AdminSideBar/>} />
@@ -92,10 +93,14 @@ function App() {
          <Route path="/AffecterEncadrant" element={<AffeccterEncadRespo/>} />
            {/*    Etudiant Dashboard */} 
                    
-                   
-                    
-       
-         
+
+
+        <Route path="/EtudiantProfil" element={<ViewprofEtud/>} />
+        <Route path="/ModifierCompteEtudiant" element={<EditCompEtudiant/>} />
+        <Route path="/CreateGroup"       element={<CreateGroup/>} />     
+       <Route path="/MonGroupeEtud" element={<ViewGroupEtud/>} />
+      <Route path="/ModifierGroupe"  element={<EditGroupEtud/>} />
+      <Route path="/ModifierResponsable" element={<EditResponsable/>} />
 
         </Routes>
 

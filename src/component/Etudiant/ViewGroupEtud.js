@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import EtudeSideBar from '../../SideBar/EtudeSideBar';
-import ProfSideBar from '../../SideBar/ProfSideBar';
+
 
 function ViewGroupEtud() {
   const [etudiants, setEtudiants] = useState([]);
@@ -25,7 +25,7 @@ function ViewGroupEtud() {
 
   return (
     <>
-    <ProfSideBar/>
+    <EtudeSideBar/>
       <div className="content-body">
         <div className="container-fluid mt-3">
           <div className="row">
