@@ -41,16 +41,11 @@ function SignUp() {
   }
 
   return (
-    <div className="content-body">
+    <div className="content-body" style={{width :"70%"}}>
       <div className="container" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
         <h4>Créer votre compte</h4>
         <form onSubmit={handleSubmit}>
-          <input  type="text" 
-          name="id" 
-          placeholder="id"
-           onChange={(event)=> {setId(event.target.value);
- 
-           }}/>
+          
           <label htmlFor="prenom">Prénom :</label>
           <input
             type="text"
@@ -132,7 +127,7 @@ function SignUp() {
             required
           />
 
-          <button type="submit">Confirmer</button>
+          <button type="submit">S'inscrire</button>
         </form>
       </div>
     </div>

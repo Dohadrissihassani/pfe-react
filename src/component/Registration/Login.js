@@ -19,7 +19,7 @@ function Login() {
   };
 
   return (
-    <div class="content-body">
+    <div class="content-body" style={{width :"70%"}}>
          
     <div class="container" >
     <h4>Se Connecter</h4>
@@ -28,14 +28,14 @@ function Login() {
       <form onSubmit={handleLogin}>
         <div>
           <label>Email:</label>
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <input type="email"  placeholder="Entrez l'adresse e-mail" value={email} onChange={(e) => setEmail(e.target.value)} required />
         </div>
         <div>
           <label>Mot de passe :</label>
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <input type="password"   placeholder="Entrez votre mot de passe" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
         {error && <p>{error}</p>}
-        <button type="submit">Confirmer</button>
+        <button type="submit">se connecter</button>
       </form>
     </div>
     </div>

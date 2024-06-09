@@ -54,10 +54,10 @@ function ViewGroupProf() {
                             </tr>
                           ))}
                           <tr>
-                            <td>Assia</td>
-                            <td>El boussanni</td>
-                            <td>assia@gmail.com</td>
-                            <td>2030050</td>
+                            <td>Rofaydae</td>
+                            <td>Elasly</td>
+                            <td>rofaydae@gmail.com</td>
+                            <td>2877650</td>
                           </tr>
                           <tr>
                             <td>Assia</td>

@@ -13,14 +13,14 @@ function EditDepartement(props) {
 
     const getDepartementBy = (id) => {
         axios
-            .get('YOUR_API_ENDPOINT/' + id) // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+            .get(`http://localhost:8080/departements/dept/${id}` + id) // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
             .then((response) => {
                 const departement = response.data;
                 setStateDept({
                     id: departement.id,
-                    name: departement.name,
-                    Description: departement.Description,
-                    Responsable: departement.Responsable
+                    nom: departement.nom,
+                    description: departement.description,
+                    responsable: departement.responsable
                 });
             })
             .catch((error) => {
@@ -32,7 +32,7 @@ function EditDepartement(props) {
     const putDepartement = (e) => {
         e.preventDefault();
         axios
-            .put('YOUR_API_ENDPOINT/' + stateDept.id, stateDept) // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
+            .put(`http://localhost:8080/departements/updateDept/${stateDept.id}` + stateDept.id, stateDept) // Replace 'YOUR_API_ENDPOINT' with your actual API endpoint
             .then((response) => {
                 props.history.push("/"); // Fixed typo: 'push' instead of 'puch'
             })
@@ -52,23 +52,23 @@ function EditDepartement(props) {
                     <h2>Nom du Département</h2>
                     <input
                         type="text"
-                        value={stateDept.name}
-                        onChange={(e) => setStateDept({ ...stateDept, name: e.target.value })}
+                        value={stateDept.nom}
+                        onChange={(e) => setStateDept({ ...stateDept, nom: e.target.value })}
                         placeholder="Nom du Département"
                     />
-                    <h2>Description</h2>
+                    <h2>description</h2>
                     <input
                         type="text"
-                        value={stateDept.Description}
-                        onChange={(e) => setStateDept({ ...stateDept, Description: e.target.value })}
-                        placeholder="Description"
+                        value={stateDept.description}
+                        onChange={(e) => setStateDept({ ...stateDept, description: e.target.value })}
+                        placeholder="description"
                     />
-                    <h2>Responsable du département:</h2>
+                    <h2>responsable du département:</h2>
                     <input
                         type="text"
-                        value={stateDept.Responsable}
-                        onChange={(e) => setStateDept({ ...stateDept, Responsable: e.target.value })}
-                        placeholder="Responsable du département"
+                        value={stateDept.responsable}
+                        onChange={(e) => setStateDept({ ...stateDept, responsable: e.target.value })}
+                        placeholder="responsable du département"
                     />
                     <button type="submit">Confirmer</button>
                 </form>

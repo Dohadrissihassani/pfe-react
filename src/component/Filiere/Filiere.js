@@ -3,6 +3,7 @@ import axios from 'axios';
 import FiliereRow from './FiliereRow';
 import { Link } from 'react-router-dom';
 import AdminSideBar from '../../SideBar/AdminSideBar';
+import { Button } from 'bootstrap';
 function Filiere() {
     const [stateFiliere, setFiliereState] = useState([]);
 
@@ -12,15 +13,15 @@ function Filiere() {
 
     const getFiliere = () => {
         axios
-            .get('http://localhost:--') // Replace -- with the correct port number
+            .get('http://localhost:8080/filieres/list') 
             .then(response => {
                 let Filiere = response.data;
                 setFiliereState(
                     Filiere.map(d => ({
                         select: false,
-                        idF: d.idF, // Ensure this matches the API response field name
-                        nom: d.nom,
-                        Responsable: d.Responsable
+                        idF: d.idF, 
+                        responsable: d.responsable,
+                        description:d.description
                     }))
                 );
             })
@@ -50,9 +51,10 @@ function Filiere() {
                                     <div className="table-responsive">
                                         <table className="table table-xs mb-0">
                                             <thead>
-                                                <tr className="tr_table zero-configuration">
+                                                <tr className="tr_table zero-configuration" style={{color:"black"}}>
                                                     <th>Filière</th>
                                                     <th>Responsable</th>
+                                                    <th>Description</th>
                                                     <th>Operation</th>
                                                 </tr>
                                             </thead>
@@ -61,6 +63,8 @@ function Filiere() {
                                                     stateFiliere={stateFiliere}
                                                     setFiliereState={setFiliereState}
                                                 />
+                                               
+                                        
                                             </tbody>
                                         </table>
                                         {/*Pagination */}

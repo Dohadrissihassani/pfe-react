@@ -48,7 +48,7 @@ function EditGroupEtud() {
                             <th>Le prénom</th>
                             <th>Email</th>
                             <th>Code Apogée</th>
-                            <th> supprimer  member dans Groupe  </th>
+                            <th> Supprimer membre</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -59,7 +59,7 @@ function EditGroupEtud() {
                               <td> Doha</td>
                               <td>doha@gmail.com</td>
                               <td>4444422</td>
-                               <td > <button className="btn btn-light" >
+                               <td > <button className="btn btn-light icon-btn" >
                                   <i className="bi bi-trash"></i>
                                 </button>
                                 </td>

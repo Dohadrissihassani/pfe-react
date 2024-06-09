@@ -4,21 +4,18 @@ import AdminSideBar from '../../SideBar/AdminSideBar';
 function DepartementRow(props) {
   return props.stateDepartement.map(d  => (
 <>
-   <AdminSideBar/>
-    <div>  
+  
+   
       <tr key={d.id} >
-        <th>{d.nom}     </th>
-        <td>{d.Description}</td>
+        <td>{d.nom}     </td>
+        <td>{d.description}</td>
         
-        <td> {d.Responsable}     </td>
-        
-      
-
+        <td> {d.responsable}  </td>
      </tr>
 
 
 
-    </div>
+  
     </>
   ));
 }

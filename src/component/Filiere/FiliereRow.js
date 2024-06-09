@@ -1,29 +1,24 @@
-import React from 'react'
-import AdminSideBar from '../../SideBar/AdminSideBar';
-function FiliereRow(props) {
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
-    return props.stateFiliere.map(d => (
+const FiliereRow = ({ stateFiliere, setFiliereState }) => {
+    return (
         <>
-<AdminSideBar/>
-        <div>
-            <tr key={d.idF} >
-                <th>{d.nom}  </th>
-                <td> {d.Responsable}     </td>
-
-                <td>
-                    <link to={'edit/${d.idF}'}>
-                        <button class="btn btn-light" ><i class="fa-regular fa-pen-to-square"></i></button>
-                    </link>
-                </td>
-
-            </tr>
-
-
-
-        </div>
-</>
-    ));
-}
-
+            {stateFiliere.map((filiere, index) => (
+                <tr key={index}>
+                    <td>{filiere.nom}</td>
+                    <td>{filiere.description}</td>
+                    <td>{filiere.responsable}</td>
+                    <td>
+                    <Link to={`/edit/${filiere.idF}`} className="btn btn-sm btn-light">
+                            <i className="fa fa-pen-to-square"></i>
+                        </Link>
+                    </td>
+                </tr>
+            ))}
+        </>
+    );
+};
 
 export default FiliereRow;

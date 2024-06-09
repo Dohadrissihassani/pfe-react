@@ -45,6 +45,7 @@ import EditProfByAdmin from './component/professeur/EditProfByAdmin';
 import LesProjetsRespo from './component/ResponsablePfe/LesProjetsRespo';
 import AffeccterEncadRespo from './component/ResponsablePfe/AffecterEncadRespo';
 import ViewGroupProf from './component/groupe/ViewGroupProf';
+import ForgotPassword from './component/Registration/ForgotPassword';
 
 
 
@@ -53,16 +54,17 @@ function App() {
   return (
     
        
-
+        
      
       <Router>
-        <Header/>
+
+      <Header/>
        
         <Routes>
 
-       <Route path="SignUp" element={<Signup/>}/>
+       <Route path="/SignUp" element={<Signup/>}/>
       <Route path="/login" element={<Login/>}/>
-      
+       <Route path="/Mot_de_pass" element={<ForgotPassword/>}/>
       
         {/*  /Professeur Professor dashboard      */}
         <Route path="/" element={<ProfSideBar/>} />
@@ -85,15 +87,18 @@ function App() {
         <Route path="/creeDepartement" element={<AddDepartement/>} />
         <Route path="/listeDepart" element={<Departement/>} />
         <Route path="/Liste-Filiere" element={<Filiere/>} />      
-        <Route path="/addFiliere" element={<AddFiliere/>} />       
+        <Route path="/addFiliere" element={<AddFiliere/>} /> 
+        <Route path="/addFiliere" element={<AddFiliere/>} /> 
+        <Route path="/edit/:idF" element={<EditFiliere/>} /> 
+
 
          {/*    RESPONSABLE Dashboard */} 
          <Route path="/responsable" element={<RespoSideBar/>} />
         <Route path="/LesProjetsResponsable" element={<LesProjetsRespo/>} />
          <Route path="/AffecterEncadrant" element={<AffeccterEncadRespo/>} />
-           {/*    Etudiant Dashboard */} 
-                   
 
+           {/*    Etudiant Dashboard */} 
+                  
 
         <Route path="/EtudiantProfil" element={<ViewprofEtud/>} />
         <Route path="/ModifierCompteEtudiant" element={<EditCompEtudiant/>} />
