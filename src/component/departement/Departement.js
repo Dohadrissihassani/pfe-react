@@ -49,7 +49,7 @@ const sendTest= () =>{
                          <div class="card-body">
                              <h4 class="card-title">La Liste des département</h4>
                              <div class="active-member">
-                             <Link to="/add" >
+                             <Link to="/creeDepartement" >
                                          <div class="row">
                                              <div class="col-7">
                                                  <div class="text-left">
