@@ -45,7 +45,11 @@ import EditProfByAdmin from './component/professeur/EditProfByAdmin';
 import LesProjetsRespo from './component/ResponsablePfe/LesProjetsRespo';
 import AffeccterEncadRespo from './component/ResponsablePfe/AffecterEncadRespo';
 import ViewGroupProf from './component/groupe/ViewGroupProf';
+<<<<<<< HEAD
 import ForgotPassword from './component/Registration/ForgotPassword';
+=======
+import HomeBe from './component/Home/HomeBe';
+>>>>>>> e36e5171bc07d2846a5b1734ebaf68ece310b55e
 
 
 
@@ -54,8 +58,13 @@ function App() {
   return (
     
        
+<<<<<<< HEAD
         
      
+=======
+
+    
+>>>>>>> e36e5171bc07d2846a5b1734ebaf68ece310b55e
       <Router>
 
       <Header/>
@@ -96,10 +105,19 @@ function App() {
          <Route path="/responsable" element={<RespoSideBar/>} />
         <Route path="/LesProjetsResponsable" element={<LesProjetsRespo/>} />
          <Route path="/AffecterEncadrant" element={<AffeccterEncadRespo/>} />
+<<<<<<< HEAD
 
            {/*    Etudiant Dashboard */} 
                   
 
+=======
+           
+                   
+          {/*    Home Dashboard */} 
+         <Route path= "/HomeBefor" element ={<HomeBe/>} />
+
+             {/*    Etudiant Dashboard */} 
+>>>>>>> e36e5171bc07d2846a5b1734ebaf68ece310b55e
         <Route path="/EtudiantProfil" element={<ViewprofEtud/>} />
         <Route path="/ModifierCompteEtudiant" element={<EditCompEtudiant/>} />
         <Route path="/CreateGroup"       element={<CreateGroup/>} />     
