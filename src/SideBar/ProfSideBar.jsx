@@ -77,7 +77,7 @@ function ProfSideBar() {
             </li>
             
             <li>
-              <NavLink to="/homeBefore" aria-expanded="false" onClick={handleSeDeconnecter}>
+              <NavLink to="/HomeBefor" aria-expanded="false" onClick={handleSeDeconnecter}>
                 <i className="fa-solid fa-arrow-right-from-bracket"></i><span className="nav-text">Se deconnecter</span>
               </NavLink>
             </li>

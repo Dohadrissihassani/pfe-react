@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
         <div>
-           
             {/* Header start */}
             <div className="header">
                 <div className="header-content clearfix">
@@ -48,11 +48,10 @@ const Header = () => {
                                 <div className="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                     <div className="dropdown-content-body">
                                         <ul>
-                                            {/*<li>
-                                                <i className="icon-user"></i> <span>Le Nom d'utilisateur</span>
-                                             </li>*/}
                                             <hr className="my-2" />
-                                            <li><a href="homeBefore.html"><i className="icon-key"></i> <span>Se deconnecter</span></a></li>
+                                            <li>
+                                                <Link to="/HomeBefor"><i className="icon-key"></i> <span>Se déconnecter</span></Link>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -62,10 +61,6 @@ const Header = () => {
                 </div>
             </div>
             {/* Header end */}
-
-          
-
-         
         </div>
     );
 }

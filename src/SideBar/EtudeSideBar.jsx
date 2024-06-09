@@ -56,9 +56,9 @@ function EtudeSideBar() {
                             </ul>
                         </li>
                         <li>
-                            <a href="homeBefore.html" aria-expanded="false" onClick={handleSeDeconnecter}>
+                            <Link to="/HomeBefor" aria-expanded="false" onClick={handleSeDeconnecter}>
                                 <i className="fa-solid fa-arrow-right-from-bracket"></i><span className="nav-text">Se deconnecter</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

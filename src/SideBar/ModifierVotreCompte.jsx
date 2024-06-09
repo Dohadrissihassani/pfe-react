@@ -85,7 +85,7 @@ function ModifierVotreCompte() {
                                         </li>
                                         <hr className="my-2" />
 
-                                        <li> <a href="homaBefore.html"> <span>Se deconnecter</span></a></li>
+                                        <li> <link to="/HomeBefor"> <span>Se deconnecter</span></link></li>
                                     </ul>
                                 </div>
                             </div>
@@ -146,9 +146,9 @@ function ModifierVotreCompte() {
                         </ul>
                     </li>
                     <li>
-                        <a href="homeBefore.html" aria-expanded="false">
+                    <Link to="/HomeBefor" aria-expanded="false">
                             <i className="fa-solid fa-arrow-right-from-bracket"></i><span className="nav-text">Se deconnecter</span>
-                        </a>
+                        </Link>
                     </li>
 
 

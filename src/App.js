@@ -45,6 +45,7 @@ import EditProfByAdmin from './component/professeur/EditProfByAdmin';
 import LesProjetsRespo from './component/ResponsablePfe/LesProjetsRespo';
 import AffeccterEncadRespo from './component/ResponsablePfe/AffecterEncadRespo';
 import ViewGroupProf from './component/groupe/ViewGroupProf';
+import HomeBe from './component/Home/HomeBe';
 
 
 
@@ -54,7 +55,7 @@ function App() {
     
        
 
-     
+    
       <Router>
         <Header/>
        
@@ -91,10 +92,12 @@ function App() {
          <Route path="/responsable" element={<RespoSideBar/>} />
         <Route path="/LesProjetsResponsable" element={<LesProjetsRespo/>} />
          <Route path="/AffecterEncadrant" element={<AffeccterEncadRespo/>} />
-           {/*    Etudiant Dashboard */} 
+           
                    
+          {/*    Home Dashboard */} 
+         <Route path= "/HomeBefor" element ={<HomeBe/>} />
 
-
+             {/*    Etudiant Dashboard */} 
         <Route path="/EtudiantProfil" element={<ViewprofEtud/>} />
         <Route path="/ModifierCompteEtudiant" element={<EditCompEtudiant/>} />
         <Route path="/CreateGroup"       element={<CreateGroup/>} />     

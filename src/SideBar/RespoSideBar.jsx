@@ -41,7 +41,7 @@ function RespoSideBar() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/homeBefore" aria-expanded="false" onClick={handleSeDeconnecter}>
+                            <Link to="/HomeBefor" aria-expanded="false" onClick={handleSeDeconnecter}>
                                 <i className="fa-solid fa-arrow-right-from-bracket"></i><span className="nav-text">Se deconnecter</span>
                             </Link>
                         </li>
