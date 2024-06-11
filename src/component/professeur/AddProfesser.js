@@ -22,24 +22,26 @@ function AddProfesser(props) {
 
   const submit = (e) => {
     e.preventDefault();
-
-let nom = e.strget[0].value;
-let email = e.target[1].value;
-let password=e.target[2].value;
-let telephone=e.target[3].value;
-let departement =e.target[4].value
-let data={
-  nom,
-  email,
-  password,
-  telephone,
-  departement
-
-}
-
+  
+    // Corrected typo from e.strget[0].value to e.target[0].value
+    let nom = e.target[0].value;
+    let email = e.target[1].value;
+    let password = e.target[2].value;
+    let telephone = e.target[3].value;
+    let departement = e.target[4].value;
+  
+    let data = {
+      nom,
+      email,
+      password,
+      telephone,
+      departement
+    };
+  
     console.log(data);
     postProfesseur(data);
   };
+  
 
   const postProfesseur = (data) => {
     axios.post("http://localhost:8080/professeur/save", data)

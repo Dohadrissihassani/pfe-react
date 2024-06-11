@@ -11,7 +11,7 @@ function DeleteDisactiveUser() {
 
     const getUsers = () => {
         axios
-            .get("http://your-api-url/users")
+            .get("http://url/users")
             .then(data => {
                 let users = data.data;
                 setUsersState(
@@ -38,7 +38,7 @@ function DeleteDisactiveUser() {
         });
 
         axios
-            .delete(`http://your-api-url/users`, { data: { ids: arrayIds } })
+            .delete(`http://url/users`, { data: { ids: arrayIds } })
             .then(data => {
                 console.log(data);
                 getUsers(); // Refresh the user list after deletion
