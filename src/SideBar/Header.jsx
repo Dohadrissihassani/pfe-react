@@ -43,7 +43,7 @@ const Header = () => {
                             <li className="icons dropdown">
                                 <div className="user-img c-pointer position-relative" data-toggle="dropdown">
                                     <span className="activity active"></span>
-                                    <img src="images/user/1.png" height="40" width="40" alt="" />
+                                    <img src="./interface/images/user.jpeg" height="40" width="40" alt="" />
                                 </div>
                                 <div className="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                     <div className="dropdown-content-body">

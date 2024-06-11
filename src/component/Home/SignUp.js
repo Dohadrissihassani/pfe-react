@@ -45,7 +45,11 @@ function SignUp() {
       <div className="container" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
         <h4>Créer votre compte</h4>
         <form onSubmit={handleSubmit}>
+<<<<<<< HEAD
+         
+=======
           
+>>>>>>> 1fa72e7eb4721a775b9926838277c3d34bdd8430
           <label htmlFor="prenom">Prénom :</label>
           <input
             type="text"
