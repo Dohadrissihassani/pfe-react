@@ -49,16 +49,18 @@ function CreateGroup() {
     }
   };
 
-  const handleCreateGroup = () => {
+  const handleCreateGroup = async () => {
     const groupLeader = selectedEtudiants.length > 0 ? selectedEtudiants[0] : null;
-    axios.post('/api/groups', { etudiants: selectedEtudiants, groupLeader })
-      .then(response => {
-        console.log('Group created successfully:', response.data);
-        setSelectedEtudiants([]);
-      })
-      .catch(error => {
-        console.error('Error creating group:', error);
+    try {
+      const response = await axios.post('http://localhost:8080/api/groups', {
+        etudiants: selectedEtudiants,
+        groupLeader
       });
+      console.log('Group created successfully:', response.data);
+      setSelectedEtudiants([]);
+    } catch (error) {
+      console.error('Error creating group:', error);
+    }
   };
 
   return (
@@ -83,24 +85,6 @@ function CreateGroup() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td> Drissi hassani</td>
-                        <td> Doha</td>
-                        <td>doha@gmail.com</td>
-                        <td>4444422</td>
-                        <td>  <label class="switch"><input type="checkbox" />
-                          <span class="slider round"></span>
-                        </label> </td>
-                      </tr>
-                      <tr>
-                        <td> Drissi hassani</td>
-                        <td> Doha</td>
-                        <td>doha@gmail.com</td>
-                        <td>4444422</td>
-                        <td>  <label class="switch"><input type="checkbox" />
-                          <span class="slider round"></span>
-                        </label> </td>
-                      </tr>
                       {etudiants.map((etudiant, index) => (
                         <tr key={index}>
                           <td>{etudiant.nom}</td>
@@ -122,7 +106,6 @@ function CreateGroup() {
                     </tbody>
                   </table>
                   <div className="mt-4">
-
                     <ul>
                       {selectedEtudiants.map((etudiant, index) => (
                         <li key={index}>
