@@ -33,7 +33,7 @@ function EtudeSideBar() {
                         </li>
                         <li>
                             <a className="has-arrow" href="javascript:void(0)" onClick={() => toggleSubMenu('gerer-profile')}>
-                                <i className="fa-solid fa-user-gear"></i><span className="nav-text">Gérer profile</span>
+                                <i className="fa-solid fa-user-gear"></i><span className="nav-text">Gestion profile</span>
                             </a>
                             <ul className="sub-menu" id="gerer-profile" style={{ display: activeSubMenu === 'gerer-profile' ? 'block' : 'none' }}>
                                 <li>
@@ -50,7 +50,7 @@ function EtudeSideBar() {
                             </a>
                             <ul className="sub-menu" id="gestion-groupe" style={{ display: activeSubMenu === 'gestion-groupe' ? 'block' : 'none' }}>
                                 <li><Link to="/CreateGroup" activeClassName="active-link"><i className="fa-solid fa-users-line"></i>Créer Groupe</Link></li>
-                                <li><Link to="/MonGroupeEtud" activeClassName="active-link"><i className="fa-solid fa-users-rectangle"></i>Mon Groupe</Link></li>
+                                <li><Link to="/view-group" activeClassName="active-link"><i className="fa-solid fa-users-rectangle"></i>Mon Groupe</Link></li>
                                 <li><Link to="/ModifierGroupe" activeClassName="active-link"><i className="fa-solid fa-people-group"></i>Modifier Groupe</Link></li>
                                 <li><Link to="/ModifierResponsable" activeClassName="active-link"><i className="fa-solid fa-user-pen"></i>Modifier Responsable</Link></li>
                             </ul>

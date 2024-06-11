@@ -1,9 +1,10 @@
+// Filiere.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import FiliereRow from './FiliereRow';
 import { Link } from 'react-router-dom';
 import AdminSideBar from '../../SideBar/AdminSideBar';
-import { Button } from 'bootstrap';
+
 function Filiere() {
     const [stateFiliere, setFiliereState] = useState([]);
 
@@ -20,8 +21,9 @@ function Filiere() {
                     Filiere.map(d => ({
                         select: false,
                         idF: d.idF, 
+                        nom: d.nom, // Corrected here
                         responsable: d.responsable,
-                        description:d.description
+                        description: d.description
                     }))
                 );
             })
@@ -53,8 +55,8 @@ function Filiere() {
                                             <thead>
                                                 <tr className="tr_table zero-configuration" style={{color:"black"}}>
                                                     <th>Filière</th>
-                                                    <th>Responsable</th>
                                                     <th>Description</th>
+                                                    <th>Responsable</th>
                                                     <th>Operation</th>
                                                 </tr>
                                             </thead>

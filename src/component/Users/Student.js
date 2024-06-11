@@ -14,14 +14,14 @@ function Student() {
     }, []);
 
     const getStudent = () => {
-        axios.get('http://localhost:9090/etudiant/create_accounts')
+        axios.get('http://localhost:8080/Etudiant/info')
             .then(response => {
                 const students = response.data;
                 setStudentState(students.map(student => ({
                     id: student.id,
                     nom: student.nom,
-                    prenom: student.prenom,
-                    email: student.email,
+                    etprenom: student.etprenom,
+                    adressEmail: student.adressEmail,
                     accepted: false
                 })));
             })
@@ -66,25 +66,20 @@ function Student() {
 
                                                                         <th>Nom</th>
                                                                         <th>Prenom</th>
-                                                                        <th>Email</th>
+                                                                        <th>AdressEmail</th>
                                                                         <th>Approuver</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                  <tr> {stateStudent.map(student => (
+                                                                  {stateStudent.map(student => (
                                                                         <StudentRow
                                                                             key={student.id}
                                                                             student={student}
                                                                             onAccept={acceptStudent}
                                                                         />
                                                                     ))}
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Assia</td>
-                                                                        <td>El Boussanni</td>
-                                                                        <td>assiaelbo2003@gmail.com</td>
-                                                                        <td><button className='btn-light'><i class="bi bi-check2"></i></button></td>
-                                                                    </tr>
+                                                                   
+                                                                  
                                                                 </tbody>
                                                             </table>
 

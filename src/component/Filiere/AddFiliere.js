@@ -34,11 +34,11 @@ function AddFiliere(props) {
                     <div className="contfilière">
                         <h1 style={{ color: '#1E97F3', fontSize: 'large', textAlign: 'center' }}>Nouvelle Filière</h1>
                         <label>Nom Filière</label>
-                        <input type="text" placeholder="Nom de filière"/>
+                        <input type="text" id='nom' placeholder="Nom de filière"/>
                         <label>Description</label>
-                        <input type="text" placeholder="Entrez la description ici"/>
+                        <input type="text" id='description' placeholder="Entrez la description ici"/>
                         <label>Responsable</label>
-                        <input type="text" placeholder="Responsable"/>
+                        <input type="text" id='responsable' placeholder="Responsable"/>
                         <button type="submit" className="btn btn-info ">Confirmer</button>
                     </div>
                 </form>

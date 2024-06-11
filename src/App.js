@@ -29,8 +29,8 @@ import ArchivedProjet from './component/projet/ArchivedProjet';
 import EtudeSideBar from './SideBar/EtudeSideBar';
 import AfeccterProject from './component/projet/AfeccterProject';
 
-import Login from './component/Registration/Login';
-import Signup from './component/Registration/SignUp'
+import Login from './component/Home/Login';
+import Signup from './component/Home/SignUp'
 
 import EditCompEtudiant from './component/Etudiant/EditCompEtudiant';
 import ViewGroupEtud from './component/Etudiant/ViewGroupEtud';
@@ -45,26 +45,15 @@ import EditProfByAdmin from './component/professeur/EditProfByAdmin';
 import LesProjetsRespo from './component/ResponsablePfe/LesProjetsRespo';
 import AffeccterEncadRespo from './component/ResponsablePfe/AffecterEncadRespo';
 import ViewGroupProf from './component/groupe/ViewGroupProf';
-<<<<<<< HEAD
-import ForgotPassword from './component/Registration/ForgotPassword';
-=======
-import HomeBe from './component/Home/HomeBe';
->>>>>>> e36e5171bc07d2846a5b1734ebaf68ece310b55e
+import ForgotPassword from './component/Home/ForgotPassword';
 
+import HomeBe from './component/Home/HomeBe';
 
 
 
 function App() {
   return (
     
-       
-<<<<<<< HEAD
-        
-     
-=======
-
-    
->>>>>>> e36e5171bc07d2846a5b1734ebaf68ece310b55e
       <Router>
 
       <Header/>
@@ -90,7 +79,7 @@ function App() {
         <Route path="/admin" element={<AdminSideBar/>} />
         <Route path="/creeProfesseur" element={<AddProfesser/>} />
         <Route path="/Liste_Professeur" element={<Professeur/>} />
-        <Route path="EditProfesseurByAdmin" element={<EditProfByAdmin/>} />
+      {/*  <Route path="/edit/" element={<EditProfByAdmin/>} />*/}
         <Route path="/admin-approuverEtud" element={<Student/>} />
         <Route path="/Suprim_disactiveCompte" element={<DeleteDisactiveUser/>} />
         <Route path="/creeDepartement" element={<AddDepartement/>} />
@@ -105,23 +94,20 @@ function App() {
          <Route path="/responsable" element={<RespoSideBar/>} />
         <Route path="/LesProjetsResponsable" element={<LesProjetsRespo/>} />
          <Route path="/AffecterEncadrant" element={<AffeccterEncadRespo/>} />
-<<<<<<< HEAD
 
            {/*    Etudiant Dashboard */} 
                   
-
-=======
            
                    
           {/*    Home Dashboard */} 
          <Route path= "/HomeBefor" element ={<HomeBe/>} />
 
              {/*    Etudiant Dashboard */} 
->>>>>>> e36e5171bc07d2846a5b1734ebaf68ece310b55e
+
         <Route path="/EtudiantProfil" element={<ViewprofEtud/>} />
         <Route path="/ModifierCompteEtudiant" element={<EditCompEtudiant/>} />
-        <Route path="/CreateGroup"       element={<CreateGroup/>} />     
-       <Route path="/MonGroupeEtud" element={<ViewGroupEtud/>} />
+        <Route path="/CreateGroup"  element={<CreateGroup/>} />     
+       <Route path="/view-group" element={<ViewGroupEtud/>} />
       <Route path="/ModifierGroupe"  element={<EditGroupEtud/>} />
       <Route path="/ModifierResponsable" element={<EditResponsable/>} />
 

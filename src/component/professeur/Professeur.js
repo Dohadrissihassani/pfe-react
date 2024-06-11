@@ -20,9 +20,9 @@ function Professeur() {
           Professeur.map(d => ({
             id: d.id,
             nom: d.nom,
-            prenom: d.prenom,
             email: d.email,
-            Departement: d.Departement
+            telephone:d.telephone,
+            departement: d.departement
           }))
         );
       })
@@ -56,8 +56,8 @@ function Professeur() {
                           <thead>
                             <tr className="tr_table zero-configuration">
                               <th>Le Nom</th>
-                              <th>Le prenom</th>
                               <th>Email</th>
+                              <th>Telephone</th>
                               <th>Département</th>
                               <th>Modifier</th>
                             </tr>

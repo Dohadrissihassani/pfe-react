@@ -5,8 +5,8 @@ function StudentRow({ student, onAccept }) {
   return (
     <tr>
       <td>{student.nom}</td>
-      <td>{student.prenom}</td>
-      <td>{student.email}</td>
+      <td>{student.etprenom}</td>
+      <td>{student.adressEmail}</td>
       <td>
         {student.accepted ? (
           'Accepted'
