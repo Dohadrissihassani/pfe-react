@@ -10,9 +10,12 @@ function ProfesseurRow({ stateProfesseur }) {
       <td>{d.departement}</td>
       <td>
         <Link to={`edit/${d.id}`} id={d.id}>
-          <button className="btn btn-light">
+          <button className="btn btn-light icon-btn">
             <i className="fa-regular fa-pen-to-square"></i>
           </button>
+          <button className="btn btn-light icon-btn">
+                            <i class="bi bi-trash"></i>
+                            </button>
         </Link>
       </td>
     </tr>

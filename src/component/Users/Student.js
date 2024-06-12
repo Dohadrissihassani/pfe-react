@@ -67,7 +67,7 @@ function Student() {
                                                                         <th>Nom</th>
                                                                         <th>Prenom</th>
                                                                         <th>AdressEmail</th>
-                                                                        <th>Approuver</th>
+                                                                        <th>Operation</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>

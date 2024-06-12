@@ -23,7 +23,7 @@ function ArchivedProjet({ projets, getProjets }) {
                           <tr className="tr_table zero-configuration">
                             <th>Nom de projet</th>
                             <th>Date de Création</th>
-                            <th>Actions</th>
+                            <th>Operation</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -34,25 +34,21 @@ function ArchivedProjet({ projets, getProjets }) {
                           <tr>
                             <td>Gestion Pfe</td>
                             <td>12/04/2024</td>
-                            <td> <button className="btn btn-light">
-                              <i className="bi bi-box-arrow-down"></i>
+                            <td> <button className="btn btn-light icon-btn">
+                            <i class="fa fa-archive" aria-hidden="true"></i>
+                            </button>
+                            <button className="btn btn-light icon-btn">
+                            <i class="bi bi-trash"></i>
+                            </button>
+                            <button className="btn btn-light icon-btn">
+                            <i class="bi bi-pencil-square"></i>
                             </button></td>
                           </tr>
                         </tbody>
                       </table>
                     
-                        </div>
-                          {/* Pagination */}
-                      <div className="row" style={{ float: 'right' }}>
-                        <div className="col-12 text-center pagination-container">
-
-                          <button className="btn btn-info icon-btn ms btn-previous">
-                            <i class="bi bi-arrow-left-square"></i>
-                          </button>
-                          <button className="btn btn-info icon-btn ms btn-next">
-                            <i class="bi bi-arrow-right-square"></i>
-                          </button>
-                      </div>
+                        
+                     
                     </div>
                   </div>
                 </div>

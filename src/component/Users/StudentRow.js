@@ -11,7 +11,7 @@ function StudentRow({ student, onAccept }) {
         {student.accepted ? (
           'Accepted'
         ) : (
-          <button className='btn-light' onClick={() => onAccept(student.id)}><i class="bi bi-check-square"></i></button>
+          <button className='btn-light icon-btn' onClick={() => onAccept(student.id)}><i class="bi bi-check-square"></i></button>
         )}
       </td>
     </tr>

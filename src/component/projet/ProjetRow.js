@@ -23,20 +23,27 @@ function ProjetRow({ projet, getProjets }) {
 
   return (
     <tr key={projet.id}>
-      <th>{projet.titre}</th>
+      <td>{projet.titre}</td>
       <td>{projet.dateCreation}</td>
       <td>
         {projet.archived ? (
-          <button className="btn btn-light" onClick={unarchiveProjet}>
-            <i className="bi bi-box-arrow-down"></i> 
-          </button>
+          <>
+            <button className="btn btn-light icon-btn" onClick={unarchiveProjet}>
+              <i className="bi bi-box-arrow-down"></i>
+            </button><button className="btn btn-light icon-btn">
+              <i class="bi bi-trash"></i>
+            </button></>
         ) : (
-          <button className="btn btn-light" onClick={archiveProjet}>
-            <i className="bi bi-box-arrow-up"></i>
-          </button>
+          <>
+            <button className="btn btn-light icon-btn " onClick={archiveProjet}>
+              <i class="bi bi-archive"></i>
+            </button><button className="btn btn-light icon-btn">
+              <i class="bi bi-trash"></i>
+            </button>
+          </>
         )}
         <Link to={`/edit/${projet.id}`}>
-          <button className="btn btn-light">
+          <button className="btn btn-light icon-btn">
             <i className="fa-regular fa-pen-to-square"></i>
           </button>
         </Link>

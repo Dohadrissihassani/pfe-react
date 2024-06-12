@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div>
             {/* Header start */}
-            <div className="header">
+            <div className="header" >
                 <div className="header-content clearfix">
                     <div className="nav-control">
                         <div className="hamburger">

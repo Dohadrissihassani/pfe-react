@@ -1,14 +1,23 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import EtudeSideBar from '../../SideBar/EtudeSideBar';
+import axios from 'axios';
 
 function ViewGroupEtud() {
-  const location = useLocation();
-  const [createdGroup, setCreatedGroup] = useState(location.state?.createdGroup || {});
+  const [createdGroup, setCreatedGroup] = useState({});
 
   useEffect(() => {
-    // No need to fetch current user information here if you don't plan to use it
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/Groupes/list');
+        if (response.data.length > 0) {
+          setCreatedGroup(response.data[0]); // Assuming the first group is the one created
+        }
+      } catch (error) {
+        console.error('Error fetching group:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -33,14 +42,12 @@ function ViewGroupEtud() {
                           </tr>
                         </thead>
                         <tbody>
-                          {createdGroup && createdGroup.etudiantNames && (
-                            <tr>
-                              <td>{createdGroup.nom}</td>
-                              <td>{createdGroup.etudiantNames[0]}</td>
-                              <td>{createdGroup.etudiantNames[1]}</td>
-                              <td>{createdGroup.etudiantNames[2]}</td>
-                            </tr>
-                          )}
+                          <tr>
+                            <td>{createdGroup.nom}</td>
+                            <td>{createdGroup.etudiantNames ? createdGroup.etudiantNames[0] : ''}</td>
+                            <td>{createdGroup.etudiantNames ? createdGroup.etudiantNames[1] : ''}</td>
+                            <td>{createdGroup.etudiantNames ? createdGroup.etudiantNames[2] : ''}</td>
+                          </tr>
                         </tbody>
                       </table>
                     </div>

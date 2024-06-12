@@ -26,14 +26,14 @@ function ProfSideBar() {
                     </a>
                 </div>
       </div>
-      <div className="nk-sidebar">           
+      <div className="nk-sidebar" style={{height:'100%'}}>           
         <div className="nk-nav-scroll">
           <ul className="metismenu" id="menu">
             <li className="nav-label" style={{ color: '#1E97F3' }}><strong>Gestion De PFE</strong></li>
 
             <li>
               <a className="has-arrow" href="javascript:void(0)" onClick={() => toggleSubMenu('gerer-profile')}>
-                <i className="fa-solid fa-user-gear"></i><span className="nav-text">Gérer profile</span>
+                <i className="fa-solid fa-user-gear"></i><span className="nav-text">Gestion profile</span>
               </a>
               <ul className="sub-menu" id="gerer-profile" style={{ display: activeSubMenu === 'gerer-profile' ? 'block' : 'none' }}>
                 <li>
@@ -47,7 +47,7 @@ function ProfSideBar() {
             
             <li>
               <a className="has-arrow" href="javascript:void(0)" onClick={() => toggleSubMenu('gerer-projets')}>
-                <i className="fa-solid fa-graduation-cap"></i><span className="nav-text">Gérer projets</span>
+                <i className="fa-solid fa-graduation-cap"></i><span className="nav-text">Gestion projets</span>
               </a>
               <ul className="sub-menu" id="gerer-projets" style={{ display: activeSubMenu === 'gerer-projets' ? 'block' : 'none' }}>
                 <li>
@@ -67,7 +67,7 @@ function ProfSideBar() {
             
             <li className="mega-menu mega-menu-sm">
               <a className="has-arrow" href="javascript:void(0)" onClick={() => toggleSubMenu('gerer-groupe')}>
-                <i className="fa-solid fa-users-gear"></i><span className="nav-text">Gérer Groupe</span>
+                <i className="fa-solid fa-users-gear"></i><span className="nav-text">Gestion Groupe</span>
               </a>
               <ul className="sub-menu" id="gerer-groupe" style={{ display: activeSubMenu === 'gerer-groupe' ? 'block' : 'none' }}>
                 <li>
@@ -83,6 +83,7 @@ function ProfSideBar() {
             </li>
           </ul>
         </div>
+         
       </div>
     </>
   );

@@ -46,7 +46,7 @@ import LesProjetsRespo from './component/ResponsablePfe/LesProjetsRespo';
 import AffeccterEncadRespo from './component/ResponsablePfe/AffecterEncadRespo';
 import ViewGroupProf from './component/groupe/ViewGroupProf';
 import ForgotPassword from './component/Home/ForgotPassword';
-
+import Switch_Role from './SideBar/Switch_Role';
 import HomeBe from './component/Home/HomeBe';
 
 
@@ -61,13 +61,14 @@ function App() {
         <Routes>
 
        <Route path="/SignUp" element={<Signup/>}/>
+       <Route path="/Switch" element={<Switch_Role/>}/>
       <Route path="/login" element={<Login/>}/>
        <Route path="/Mot_de_pass" element={<ForgotPassword/>}/>
       
         {/*  /Professeur Professor dashboard      */}
         <Route path="/" element={<ProfSideBar/>} />
         <Route path="/MonProfil" element={<ViewProf/>} />
-        <Route path="/ModifierCompte" element={<EditProfessur/>} />
+        <Route path="/ModifierCompte/:id" element={<EditProfessur/>} />
         <Route path="/creeProjet" element={<AddProjet/>} />
         <Route path="/AffecterProjet" element={<AfeccterProject/>} />
         <Route path="/ListeProjet" element={<Projet/>} />
@@ -105,8 +106,8 @@ function App() {
              {/*    Etudiant Dashboard */} 
 
         <Route path="/EtudiantProfil" element={<ViewprofEtud/>} />
-        <Route path="/ModifierCompteEtudiant" element={<EditCompEtudiant/>} />
-        <Route path="/CreateGroup"  element={<CreateGroup/>} />     
+        <Route path="/ModifierCompteEtudiant/:id" element={<EditCompEtudiant/>} />
+        <Route path="/CreateGroup"       element={<CreateGroup/>} />     
        <Route path="/view-group" element={<ViewGroupEtud/>} />
       <Route path="/ModifierGroupe"  element={<EditGroupEtud/>} />
       <Route path="/ModifierResponsable" element={<EditResponsable/>} />

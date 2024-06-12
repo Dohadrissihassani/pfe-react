@@ -59,7 +59,7 @@ function Professeur() {
                               <th>Email</th>
                               <th>Telephone</th>
                               <th>Département</th>
-                              <th>Modifier</th>
+                              <th>Operation</th>
                             </tr>
                           </thead>
                           <tbody>

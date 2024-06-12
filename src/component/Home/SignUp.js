@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 function SignUp() {
-  const [id,setId]=useState("");
+  const [id, setId] = useState("");
   const [prénom, setPrénom] = useState("");
   const [nom, setNom] = useState("");
   const [adresseEmail, setAdressEmail] = useState("");
   const [codeApogee, setCodeApogee] = useState("");
   const [telephone, setTelephone] = useState("");
-  const [filière, setFilière] = useState("");
+  const [filière, setFilière] = useState("SMI");
   const [motdepasse, setMotdepasse] = useState("");
 
   async function handleSubmit(event) {
@@ -16,8 +17,7 @@ function SignUp() {
 
     try {
       await axios.post("http://localhost:8080/saveEtudiant", {
-    
-      id:id,
+        id: id,
         prenom: prénom,
         nom: nom,
         adressEmail: adresseEmail,
@@ -26,8 +26,10 @@ function SignUp() {
         filiere: filière,
         motdepasse: motdepasse,
       });
-      alert("User Registration Successfully");
-      setId("")
+      
+    
+
+      setId("");
       setPrénom("");
       setNom("");
       setAdressEmail("");
@@ -36,20 +38,21 @@ function SignUp() {
       setFilière("SMI");
       setMotdepasse("");
     } catch (err) {
-      alert("User Registration failed");
+     // Show success message
+     Swal.fire({
+      icon: 'success',
+      title: 'Succès',
+      text: 'Inscription réussie'
+    });
+     
     }
   }
 
   return (
-    <div className="content-body" style={{width :"70%"}}>
+    <div className="content-body" style={{ width: "70%" }}>
       <div className="container" style={{ marginLeft: 'auto', marginRight: 'auto' }}>
         <h4>Créer votre compte</h4>
         <form onSubmit={handleSubmit}>
-<<<<<<< HEAD
-         
-=======
-          
->>>>>>> 1fa72e7eb4721a775b9926838277c3d34bdd8430
           <label htmlFor="prenom">Prénom :</label>
           <input
             type="text"

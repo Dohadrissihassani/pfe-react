@@ -13,6 +13,10 @@ function FiliereRow(props) {
                 <Link to={`/edit/${filiere.idF}`} className="btn btn-sm btn-light">
                     <i className="fa fa-pen-to-square"></i>
                 </Link>
+              
+          <button className="btn btn-light icon-btn">
+                            <i class="bi bi-trash"></i>
+                            </button>
             </td>
         </tr>
     ));

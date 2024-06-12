@@ -35,10 +35,10 @@ function AdminSideBar() {
                             <a className="has-arrow" href="#" 
                                 onClick={() => toggleSubMenu('gerer-professeurs')}>
                                 <i className="fa-solid fa-users-gear"></i>
-                                <span className="nav-text">Gérer Les Professeurs</span>
+                                <span className="nav-text">Gestion Les Professeurs</span>
                             </a>
                             <ul className="sub-menu" id="gerer-professeurs" style={{ display: activeSubMenu === 'gerer-professeurs' ? 'block' : 'none' }}>
-                                <li><Link to="/creeProfesseur"><i className="fa-solid fa-user-tie"></i>Créer un Compte</Link></li>
+                                <li><Link to="/creeProfesseur"><i className="fa-solid fa-user-tie"></i>Créer un Compte Professeur</Link></li>
                                 <li><Link to="/Liste_Professeur"><i className="fa-solid fa-users-line"></i>Les Professeurs</Link></li>
 
                             </ul>
@@ -47,7 +47,7 @@ function AdminSideBar() {
                             <a className="has-arrow" href="#" 
                                 onClick={() => toggleSubMenu('gerer-utilisateur')}>
                                 <i className="fa-solid fa-user-gear"></i>
-                                <span className="nav-text">Gérer utilisateur</span>
+                                <span className="nav-text">Gestion utilisateur</span>
                             </a>
                             <ul className="sub-menu" id="gerer-utilisateur" style={{ display: activeSubMenu === 'gerer-utilisateur' ? 'block' : 'none' }}>
                                 <li><Link to="/admin-approuverEtud"><i className="fa-solid fa-user-check"></i>Approuver Étudiant</Link></li>
@@ -58,7 +58,7 @@ function AdminSideBar() {
                             <a className="has-arrow" href="#" 
                                 onClick={() => toggleSubMenu('gerer-departement')}>
                                 <i className="fa-solid fa-layer-group"></i>
-                                <span className="nav-text">Gérer Département</span>
+                                <span className="nav-text">Gestion Département</span>
                             </a>
                             <ul className="sub-menu" id="gerer-departement" style={{ display: activeSubMenu === 'gerer-departement' ? 'block' : 'none' }}>
                                 <li><Link to="/creeDepartement"><i className="fa-solid fa-school-circle-check"></i>Créer département</Link></li>
@@ -69,7 +69,7 @@ function AdminSideBar() {
                             <a className="has-arrow" href="#" 
                                 onClick={() => toggleSubMenu('gerer-filieres')}>
                                 <i className="fa-solid fa-scroll"></i>
-                                <span className="nav-text">Gérer les Filières</span>
+                                <span className="nav-text">Gestion les Filières</span>
                             </a>
                             <ul className="sub-menu" id="gerer-filieres" style={{ display: activeSubMenu === 'gerer-filieres' ? 'block' : 'none' }}>
                                 <li><Link to="/Liste-Filiere"><i className="fa-brands fa-readme"></i>Les Filières </Link></li>

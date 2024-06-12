@@ -3,20 +3,23 @@ import axios from 'axios';
 import ProfSideBar from '../../SideBar/ProfSideBar';
 import { useNavigate } from 'react-router-dom';
 
-function AddProjet() {
+function AddProjet(props) {
   const navigate = useNavigate();
 
   const submit = e => {
     e.preventDefault();
 
-    const titre = e.target[0].value;
-    const dateCreation = e.target[1].value;
-    const objectif = e.target[2].value;
+    const titre = e.target.titre.value;
+    const dateCreation = e.target.dateCreation.value;
+    const objectif = e.target.objectif.value;
 
-    const data = {
+    let data = {
       titre,
       dateCreation,
       objectif,
+      cacher: false,  // Assuming default value for `cacher`
+      encadrant: null, // Update as per your actual data structure
+      groupe: null  // Update as per your actual data structure
     };
 
     postProjet(data);
@@ -29,7 +32,10 @@ function AddProjet() {
         console.log(response);
         navigate('/ListeProjet');
       })
-      .catch(err => alert(err));
+      .catch(err => {
+        console.error(err);
+        alert('Error creating project: ' + err.message);
+      });
   };
 
   return (
@@ -39,12 +45,12 @@ function AddProjet() {
         <div className="container">
           <h4>Créer un projet</h4>
           <form onSubmit={submit}>
-            <label htmlFor="Titre">Titre:</label>
-            <input type="text" id="Titre" name="Titre" placeholder="Entrez le Titre du projet" required />
-            <label htmlFor="Année">Date de création:</label>
-            <input type="date" id="Année" name="Année" placeholder="2024" required />
-            <label htmlFor="Objectif">Objectif:</label>
-            <input type="text" id="Objectif" name="Objectif" placeholder="Entrez l'Objectif du projet" required />
+            <label htmlFor="titre">Titre:</label>
+            <input type="text" id="titre" name="titre" placeholder="Entrez le Titre du projet" required />
+            <label htmlFor="dateCreation">Date de création:</label>
+            <input type="text" id="dateCreation" name="dateCreation" placeholder="2024" required />
+            <label htmlFor="objectif">Objectif:</label>
+            <input type="text" id="objectif" name="objectif" placeholder="Entrez l'Objectif du projet" required />
             <button type="submit">Confirmer</button>
           </form>
         </div>

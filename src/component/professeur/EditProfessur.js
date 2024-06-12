@@ -22,7 +22,7 @@ function EditProfessur() {
 
   const getProfesseurById = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:8080/professeur/${id}`);
+      const response = await axios.get(`http://localhost:8080/professeur/id/${id}`);
       const professeur = response.data;
       setStateProf({
         id: professeur.id,
@@ -40,13 +40,12 @@ function EditProfessur() {
   const putProfesseur = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8080/professeur/${stateProf.id}`, stateProf);
+      await axios.put(`http://localhost:8080/professeur/id/${stateProf.id}`, stateProf);
       navigate("/");
     } catch (error) {
       alert(error);
     }
   };
-
   return (
     <div>
       <ProfSideBar/>

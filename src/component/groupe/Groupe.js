@@ -32,7 +32,7 @@ function Groupe() {
     <>
     <ProfSideBar/>
     <div className="content-body">
-      hada dyal prof
+     
       <div className="container-fluid mt-3">
         <div className="row">
           <div className="col-lg-12">
@@ -46,7 +46,7 @@ function Groupe() {
                         <tr className="tr_table zero-configuration">
                           <th>Groupe</th>
                           <th>Projet</th>
-                          <th>Consulter</th>
+                          <th>Operation</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -56,7 +56,7 @@ function Groupe() {
                           <td>groupe 1</td>
                           <td>gestion pfe</td>
                           <td>
-                          <Link to={`/ViewGroup`}> <button className="btn btn-light">
+                          <Link to={`/ViewGroup`}> <button className="btn btn-light icon-btn">
                           <i className="fa-solid fa-eye"></i>
           </button></Link>
           </td>
@@ -64,18 +64,8 @@ function Groupe() {
                       </tbody>
                     </table>
                   
-                  </div>
-                     {/* Pagination */}
-                     <div className="row" style={{ float: 'right' }}>
-                        <div className="col-12 text-center pagination-container">
-
-                          <button className="btn btn-info icon-btn ms btn-previous">
-                            <i class="bi bi-arrow-left-square"></i>
-                          </button>
-                          <button className="btn btn-info icon-btn ms btn-next">
-                            <i class="bi bi-arrow-right-square"></i>
-                          </button>
-                      </div>
+                 
+                     
                   {/*
                   <button className="btn btn-info mt-3">
                     <Link to="/groups/add" style={{ color: 'white', textDecoration: 'none' }}>

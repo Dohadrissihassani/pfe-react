@@ -1,5 +1,5 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import EtudeSideBar from '../../SideBar/EtudeSideBar';
 import { useNavigate } from 'react-router-dom';
 
@@ -35,7 +35,6 @@ function CreateGroup(props) {
       selectedEtudiants.push(selectedEtudiant2);
     }
 
-<<<<<<< HEAD
     // Add selectedEtudiant3 if it exists and group size is 3
     if (groupSize === 3 && selectedEtudiant3) {
       selectedEtudiants.push(selectedEtudiant3);
@@ -48,23 +47,10 @@ function CreateGroup(props) {
 
     try {
       const response = await axios.post('http://localhost:8080/Groupes/groupe', groupData);
-      navigate('/view-group', { state: { createdGroup: response.data } }); // Navigate to ViewGroupEtud with created group data
+      navigate('/view-group', { state: { createdGroup: response.data } });
     } catch (err) {
       console.error("Error creating group:", err);
       alert(err);
-=======
-  const handleCreateGroup = async () => {
-    const groupLeader = selectedEtudiants.length > 0 ? selectedEtudiants[0] : null;
-    try {
-      const response = await axios.post('http://localhost:8080/api/groups', {
-        etudiants: selectedEtudiants,
-        groupLeader
-      });
-      console.log('Group created successfully:', response.data);
-      setSelectedEtudiants([]);
-    } catch (error) {
-      console.error('Error creating group:', error);
->>>>>>> 3b3156a3ab5223f9973c4eede95b1984ee12c17f
     }
   };
 
@@ -72,7 +58,6 @@ function CreateGroup(props) {
     <>
       <EtudeSideBar />
       <div className="content-body">
-<<<<<<< HEAD
         <div className="container">
           <h4>Créer Un Groupe</h4>
           <form onSubmit={handleSubmit}>
@@ -136,60 +121,6 @@ function CreateGroup(props) {
             )}
             <button type="submit">Confirmer</button>
           </form>
-=======
-        <div className="container-fluid mt-3">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="card">
-                <div className="card-body">
-                  <h4 className="card-title">Liste des Étudiants</h4>
-                  <button className="btn btn-info" onClick={handleCreateGroup}>Créer un Groupe</button>
-                  <table className="table table-striped table-hover mt-3 text-center table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Le Nom</th>
-                        <th>Le prénom</th>
-                        <th>Email</th>
-                        <th>Code Apogée</th>
-                        <th>Choisissez votre partenaire</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {etudiants.map((etudiant, index) => (
-                        <tr key={index}>
-                          <td>{etudiant.nom}</td>
-                          <td>{etudiant.prenom}</td>
-                          <td>{etudiant.email}</td>
-                          <td>{etudiant.codeApogee}</td>
-                          <td>
-                            <label className="switch">
-                              <input
-                                type="checkbox"
-                                checked={selectedEtudiants.some(selectedEtudiant => selectedEtudiant.id === etudiant.id)}
-                                onChange={() => handleCheckboxChange(etudiant)}
-                              />
-                              <span className="slider round"></span>
-                            </label>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                  <div className="mt-4">
-                    <ul>
-                      {selectedEtudiants.map((etudiant, index) => (
-                        <li key={index}>
-                          {etudiant.nom} {etudiant.prenom} ({etudiant.email}) - {etudiant.codeApogee}
-                          <button className="btn btn-danger btn-sm ml-2" onClick={() => handleRemoveStudent(etudiant)}>Remove</button>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
->>>>>>> 3b3156a3ab5223f9973c4eede95b1984ee12c17f
         </div>
       </div>
     </>

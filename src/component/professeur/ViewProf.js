@@ -1,30 +1,30 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ProfSideBar from "../../SideBar/ProfSideBar";
 
 function ViewProf() {
-  const [Professeur, setProfesseur] = useState({
-    name: "",
+  const [professor, setProfessor] = useState({
+    nom: "",
     email: "",
     telephone: "",
     departement: ""
   });
 
-  const { id } = useParams();
+  const professorId = 3; // Hardcode the ID to 3
 
   useEffect(() => {
-    const loadProfesseur = async () => {
+    const loadProfessor = async () => {
       try {
-        const result = await axios.get(`http://localhost:8080/professeur/${id}`);
-        setProfesseur(result.data);
+        const response = await axios.get(`http://localhost:8080/professeur/id/${professorId}`);
+        setProfessor(response.data);
       } catch (error) {
-        console.error('There was an error fetching the professeur data:', error);
+        console.error('There was an error fetching the professor data:', error);
       }
     };
-    console.log("The id is: ", id);
-    loadProfesseur();
-  }, [id]);
+    console.log("The id is: ", professorId);
+    loadProfessor();
+  }, []);
 
   return (
     <>
@@ -38,16 +38,15 @@ function ViewProf() {
                   <div className="read-content">
                     <div className="media pt-5">
                       <div className="media-body">
-                        <h5 className="m-b-3">Le Nom De Professeur: {Professeur.name} </h5>
-                        <p className="m-b-2"> {Professeur.departement}</p>
+                        <h5 className="m-b-3"><strong>Le Nom: </strong>{professor.nom}</h5>
+                        <p className="m-b-2">{professor.departement }</p>
                       </div>
                     </div>
                     <hr />
                     <div className="media mb-4 mt-1"></div>
-                    <h5 className="m-b-15"><strong>Adresse mail : </strong> {Professeur.email}</h5>
-                    <h5 className="m-b-15"><strong>Téléphone :</strong> {Professeur.telephone}</h5>
-                    {/*<Link to={`/ModifierCompte/${id}`}>*/}
-                    <Link to="/ModifierCompte">
+                    <h5 className="m-b-15"><strong>Adress Email:</strong> {professor.email}</h5>
+                    <h5 className="m-b-15"><strong>telephone:</strong> {professor.telephone}</h5>
+                    <Link to={`/ModifierCompte/${professorId}`}>
                       <button className="btn btn-info mt-3">Modifie</button>
                     </Link>
                   </div>
@@ -56,6 +55,7 @@ function ViewProf() {
             </div>
           </div>
         </div>
+       
       </div>
     </>
   );

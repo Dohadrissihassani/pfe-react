@@ -5,9 +5,7 @@ import ProjetRow from './ProjetRow';
 import ProfSideBar from '../../SideBar/ProfSideBar';
 
 function Projet() {
-
   const [projets, setProjets] = useState([]);
-  const [stateProjet, setProjetState] = useState([]);
 
   useEffect(() => {
     getProjet();
@@ -15,40 +13,11 @@ function Projet() {
 
   const getProjet = () => {
     axios
-    .get("http://localhost:8080/Projets/projet")
+      .get("http://localhost:8080/Projets/projet")
       .then(response => {
-        let Projet = response.data
-        setProjetState(
-          Projet.map(d => ({
-            select: false,
-            id: d.id,
-            titre: d.titre,
-            dateCreation: d.dateCreation
-          }
-
-          )
-
-          )
-        );
-
-      }).catch(err => alert(err));
-  };
-
-
-
-  useEffect(() => {
-    getProjets();
-  }, []);
-
-  const getProjets = () => {
-    axios
-      .get("/api/projets")
-      .then((response) => {
-        setProjets(response.data.filter(projet => !projet.archived));
+        setProjets(response.data);
       })
-      .catch((error) => {
-        console.error('Error fetching projets:', error);
-      });
+      .catch(err => alert(err));
   };
 
   return (
@@ -77,36 +46,16 @@ function Projet() {
                           <tr className="tr_table zero-configuration">
                             <th>Nom de projet</th>
                             <th>Date de Création</th>
-                            <th>Actions</th>
+                            <th>Operation</th>
                           </tr>
                         </thead>
                         <tbody>
                           {projets.map((projet) => (
-                            <ProjetRow key={projet.id} projet={projet} getProjets={getProjets} />
+                            <ProjetRow key={projet.id} projet={projet} getProjets={getProjet} />
                           ))}
-                          <tr>
-                            <td>Gestion du pfe</td>
-                            <td>22/06/2024</td>
-                            <td> <button className="btn btn-light">
-                              <i className="bi bi-box-arrow-down"></i>
-                            </button></td>
-                          </tr>
                         </tbody>
                       </table>
                     </div>
-                    {/* Pagination */}
-                    <div className="row" style={{ float: 'right' }}>
-                      <div className="col-12 text-center pagination-container">
-
-                        <button className="btn btn-info icon-btn ms btn-previous">
-                          <i class="bi bi-arrow-left-square"></i>
-                        </button>
-                        <button className="btn btn-info icon-btn ms btn-next">
-                          <i class="bi bi-arrow-right-square"></i>
-                        </button>
-                      </div>
-                    </div>
-
                   </div>
                 </div>
               </div>
@@ -114,8 +63,8 @@ function Projet() {
           </div>
         </div>
       </div>
-      </div>
-      );
+    </div>
+  );
 }
 
-      export default Projet;
+export default Projet;

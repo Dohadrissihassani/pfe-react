@@ -9,7 +9,7 @@ function GroupeRow({ stateGroupe }) {
       //this is to see if i'm sure to put eyes button to see the project
       <td>
         <Link to={`/ViewGroup`}>
-          <button className="btn btn-light">
+          <button className="btn btn-light icon-btn">
             <i className="fa-solid fa-eye"></i>
           </button>
   </Link>

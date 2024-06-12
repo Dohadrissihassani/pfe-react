@@ -74,7 +74,7 @@ function EditGroupEtud() {
                                 <button className="btn btn-light" onClick={() => deleteEtudiant(etudiant.id)}>
                                   <i className="bi bi-trash"></i>
                                 </button>
-                               
+                                <input type="radio" id="etudient" name="etudiant" value="Responsable"/>
                               </td>
                             </tr>
                           ))}

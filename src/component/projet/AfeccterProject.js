@@ -42,7 +42,7 @@ function AfeccterProject() {
                     <form onSubmit={assignProject}>
                         <label htmlFor="Groupe">Groupe :</label>
                         <select id="Groupe" name="Groupe" value={selectedGroup} onChange={e => setSelectedGroup(e.target.value)}>
-                            <option value="">Select a group</option>
+                            <option value="">Selectionner un groupe</option>
                             {groups.map(group => (
                                 <option key={group.id} value={group.id}>{group.name}</option>
                             ))}
@@ -50,7 +50,7 @@ function AfeccterProject() {
                         
                         <label htmlFor="Projet">Projet :</label>
                         <select id="Projet" name="Projet" value={selectedProject} onChange={e => setSelectedProject(e.target.value)}>
-                            <option value="">Select a project</option>
+                            <option value="">Selectionner un project</option>
                             {projects.map(project => (
                                 <option key={project.id} value={project.id}>{project.name}</option>
                             ))}

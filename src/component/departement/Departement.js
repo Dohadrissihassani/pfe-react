@@ -65,6 +65,7 @@ function Departement() {
                                                         <th>département</th>
                                                         <th>description</th>
                                                         <th>Le responsable</th>
+                                                        <th>Operation</th>
 
 
                                                     </tr>

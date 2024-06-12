@@ -52,7 +52,7 @@ function EtudeSideBar() {
                                 <li><Link to="/CreateGroup" activeClassName="active-link"><i className="fa-solid fa-users-line"></i>Créer Groupe</Link></li>
                                 <li><Link to="/view-group" activeClassName="active-link"><i className="fa-solid fa-users-rectangle"></i>Mon Groupe</Link></li>
                                 <li><Link to="/ModifierGroupe" activeClassName="active-link"><i className="fa-solid fa-people-group"></i>Modifier Groupe</Link></li>
-                                <li><Link to="/ModifierResponsable" activeClassName="active-link"><i className="fa-solid fa-user-pen"></i>Modifier Responsable</Link></li>
+                                <li><Link to="/ModifierResponsable" activeClassName="active-link"><i className="fa-solid fa-user-pen"></i>Modifier le Responsable</Link></li>
                             </ul>
                         </li>
                         <li>
